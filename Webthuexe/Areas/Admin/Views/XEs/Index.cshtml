@@ -1,0 +1,100 @@
+﻿@model IEnumerable<Webthuexe.Models.XE>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TENXE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NXS)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LUOTTHUE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GIATHUE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GIATAIXE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GIATAIXEKH)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ANH)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MIEUTA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TUDONG)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HANGXE.TENHANG)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NHIENLIEU.TENNL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SOGHE.SOGHE1)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TENXE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NXS)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LUOTTHUE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GIATHUE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GIATAIXE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GIATAIXEKH)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ANH)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MIEUTA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TUDONG)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HANGXE.TENHANG)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NHIENLIEU.TENNL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SOGHE.SOGHE1)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MAXE }) |
+            @Html.ActionLink("Details", "Details", new { id=item.MAXE }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MAXE })
+        </td>
+    </tr>
+}
+
+</table>

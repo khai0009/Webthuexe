@@ -1,0 +1,107 @@
+﻿@model Webthuexe.Models.CHITIETLICHCHAY
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>CHITIETLICHCHAY</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DAHOANTHANH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DAHOANTHANH)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NOIDON)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NOIDON)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NOIDI)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NOIDI)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TKTAIXE.SDT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TKTAIXE.SDT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TKTAIXE1.SDT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TKTAIXE1.SDT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TKTAIXE2.SDT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TKTAIXE2.SDT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TKTAIXE3.SDT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TKTAIXE3.SDT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HOADONTHUEXE.BIENXE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HOADONTHUEXE.BIENXE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HOADONTHUEXE1.BIENXE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HOADONTHUEXE1.BIENXE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HOADONTHUEXE2.BIENXE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HOADONTHUEXE2.BIENXE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HOADONTHUEXE3.BIENXE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HOADONTHUEXE3.BIENXE)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

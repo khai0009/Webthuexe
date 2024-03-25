@@ -1,0 +1,152 @@
+﻿@model IEnumerable<Webthuexe.Models.TAIXE>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Index</h2>
+@using (Html.BeginForm("index", "TAIXEs", FormMethod.Post))
+{
+                <input type="text" name="timkiem" class="form-control" placeholder="Tìm kiếm bằng số điện thoại hoặc mã nhân viên.."/><input value="tìm kiếm" class="btn-secondary" type="submit"/>
+}
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TENDAYDU)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LOT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TEN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GIOTINH)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TUOI)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NGAYSINH)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SONHA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SDT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BANGLAI)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CCCD)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ANHDAIDIEN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.XACTHUCCC)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.XACTHUCBL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DUONG)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PHUONG_XA.TENXP)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QUAN_HUYEN.TENQH)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.THANHPHO_TINH.TENTP_TINH)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TKTAIXE.SDT)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TENDAYDU)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HO)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LOT)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TEN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GIOTINH)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TUOI)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NGAYSINH)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SONHA)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SDT)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BANGLAI)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CCCD)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ANHDAIDIEN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.XACTHUCCC)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.XACTHUCBL)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DUONG)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PHUONG_XA.TENXP)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QUAN_HUYEN.TENQH)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.THANHPHO_TINH.TENTP_TINH)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TKTAIXE.SDT)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.MATAIXE }) |
+                @Html.ActionLink("Details", "Details", new { id = item.MATAIXE }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.MATAIXE })
+            </td>
+        </tr>
+    }
+
+</table>

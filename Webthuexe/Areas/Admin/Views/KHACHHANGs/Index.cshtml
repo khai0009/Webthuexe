@@ -1,0 +1,171 @@
+﻿@model IEnumerable<Webthuexe.Models.KHACHHANG>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TENDAYDU)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LOT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TEN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GIOITINH)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TUOI)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SDT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NGAYSINH)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SONHA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CCCD)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ANHDAIDIEN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.XACNHANCC)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BANGLAI)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.XACNHANBL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DUONG)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ANHBLTRUOC)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ANHBLSAU)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ANHCCCDTRUOC)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ANHCCCDSAU)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QUAN_HUYEN.TENQH)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.THANHPHO_TINH.TENTP_TINH)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PHUONG_XA.TENXP)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TKKHACHHANG.SDT)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TENDAYDU)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LOT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TEN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GIOITINH)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TUOI)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SDT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NGAYSINH)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SONHA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CCCD)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ANHDAIDIEN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.XACNHANCC)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BANGLAI)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.XACNHANBL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DUONG)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ANHBLTRUOC)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ANHBLSAU)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ANHCCCDTRUOC)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ANHCCCDSAU)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.QUAN_HUYEN.TENQH)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.THANHPHO_TINH.TENTP_TINH)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PHUONG_XA.TENXP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TKKHACHHANG.SDT)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.MAKH }) |
+            @Html.ActionLink("Details", "Details", new { id = item.MAKH }) |
+        </td>
+    </tr>
+}
+
+</table>

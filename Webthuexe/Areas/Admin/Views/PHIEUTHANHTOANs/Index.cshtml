@@ -1,0 +1,100 @@
+﻿@model IEnumerable<Webthuexe.Models.PHIEUTHANHTOAN>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TONGSOTIEN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GHICHU)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DATHANHTOAN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NGAYTHANHTOAN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HOADONTHUEXE.BIENXE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HOADONTHUEXE1.BIENXE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HOADONTHUEXE2.BIENXE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HOADONTHUEXE3.BIENXE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NHANVIEN.TENDAYDU)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NHANVIEN1.TENDAYDU)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NHANVIEN2.TENDAYDU)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NHANVIEN3.TENDAYDU)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TONGSOTIEN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GHICHU)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DATHANHTOAN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NGAYTHANHTOAN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HOADONTHUEXE.BIENXE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HOADONTHUEXE1.BIENXE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HOADONTHUEXE2.BIENXE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HOADONTHUEXE3.BIENXE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NHANVIEN.TENDAYDU)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NHANVIEN1.TENDAYDU)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NHANVIEN2.TENDAYDU)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NHANVIEN3.TENDAYDU)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

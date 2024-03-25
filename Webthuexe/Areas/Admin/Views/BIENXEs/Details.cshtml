@@ -1,0 +1,59 @@
+﻿@model Webthuexe.Models.BIENXE
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>BIENXE</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SOKM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SOKM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MAUSAC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MAUSAC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NGAYNHAP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NGAYNHAP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TINHTRANG.TENTT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TINHTRANG.TENTT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.XE.TENXE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.XE.TENXE)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.BIENXE1 }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

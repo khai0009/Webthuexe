@@ -1,0 +1,147 @@
+﻿@model Webthuexe.Models.HOADONTHUEXE
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>HOADONTHUEXE</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.THUCTHUCTHANHTOAN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.THUCTHUCTHANHTOAN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.COTAIXE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.COTAIXE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CHIPHITHUE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CHIPHITHUE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SONGAYTHUE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SONGAYTHUE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NGAYLAP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NGAYLAP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TIENCOC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TIENCOC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DADATCOC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DADATCOC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NOIDON)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NOIDON)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GHICHU)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GHICHU)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NOIDI)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NOIDI)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NGAYDI_NHAN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NGAYDI_NHAN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NGAYVE_TRA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NGAYVE_TRA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GIAOXE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GIAOXE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KHUHOI)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KHUHOI)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BIENXE1.MATT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BIENXE1.MATT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KHACHHANG.TENDAYDU)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KHACHHANG.TENDAYDU)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MAHD }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,117 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layoutlogin.cshtml";
+}
+@model Webthuexe.Models.show
+<link rel="stylesheet" href="~/Content/css/custome.css">
+<div class="card text-center">
+
+    <div class="card-body">
+
+        <h5 class="card-title mb-4">Cập nhật CCCD</h5>
+        @using (Html.BeginForm("CCCDupdate", "Account", FormMethod.Post, new { @encType = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+
+
+
+            if (Session["checkimage"].ToString() == "false")
+            {
+                <p style="color: red; font-weight:bold">Vui lòng tải ảnh CCCD/CMND</p>
+            }
+            <div class="row form-group">
+                <div class="back-index">
+                    <a href="@Url.Action("Account_information", "Acount")" class="float-left">< Quay lại tài khoản</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div>
+                        @Html.TextBox("ImageUpload1", "", new { type = "file", accept = "*jpg, *png", @class = "inputfile" })
+                        <label for="ImageUpload1" class="btn">Tải ảnh CCCD mặt trước</label>
+                        <img id="preview1" width="180" height="120" class="hidden" src="https://www.creativefabrica.com/wp-content/uploads/2021/04/05/Photo-Image-Icon-Graphics-10388619-1-1-580x386.jpg" />
+                    </div>
+                </div>
+                <div class="col">
+                    @Html.TextBox("ImageUpload2", "", new { type = "file", accept = "*jpg, *png", @class = "inputfile" })
+                    <label for="ImageUpload2" class="btn">Tải ảnh CCCD mặt sau</label>
+                    <img id="preview2" width="180" height="120" class="hidden" src="https://www.creativefabrica.com/wp-content/uploads/2021/04/05/Photo-Image-Icon-Graphics-10388619-1-1-580x386.jpg#" title=""/>
+                </div>
+            </div>
+
+
+            <button type="submit" class="btn btn-primary btn-block" name="xacnhan" value="true">kiểm tra</button>
+        }
+    </div>
+</div>
+<!-- loader -->
+<div id="ftco-loader" class="show fullscreen">
+    <svg class="circular" width="48px" height="48px">
+        <circle class="path-bg"
+                cx="24"
+                cy="24"
+                r="22"
+                fill="none"
+                stroke-width="4"
+                stroke="#eeeeee" />
+        <circle class="path"
+                cx="24"
+                cy="24"
+                r="22"
+                fill="none"
+                stroke-width="4"
+                stroke-miterlimit="10"
+                stroke="#F96D00" />
+    </svg>
+</div>
+<style>
+    .hidden {
+        border: dashed 1px blue;
+        border-radius: 5px;
+    }
+    .btn{
+        border: dashed 1px blue;
+        margin: 2.5px;
+    }
+    .inputfile {
+        display: none;
+    }
+    .back-index a {
+        margin-left: 20px;
+    }
+
+        .back-index a:hover {
+            margin-left: 25px;
+            color: green;
+            transition-duration: 0.7s;
+        }
+</style>
+<script>
+    ImageUpload1.onchange = evt => {
+        const image = document.getElementById('preview1');
+        imgsrc = image.src;
+        image.src = '#';
+        const [file] = ImageUpload1.files
+        if (file) {
+
+            
+            preview1.src = URL.createObjectURL(file);
+
+            $("#preview1").removeClass("hidden");
+
+        }
+    }
+    ImageUpload2.onchange = evt => {
+        
+        const image = document.getElementById('preview2');
+        imgsrc = image.src;
+        image.src = '#';
+        const [file] = ImageUpload2.files
+        if (file) {
+
+            preview2.src = URL.createObjectURL(file);
+
+            $("#preview2").removeClass("hidden");
+
+        }
+    }
+</script>

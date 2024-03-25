@@ -1,0 +1,64 @@
+﻿@model IEnumerable<Webthuexe.Models.TKNVBAIXE>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.SDT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MATKHAU)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TRANGTHAI)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TGDANGNHAP)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NGAYTAO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NHANVIENQLBAIXE.TENDAYDU)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.SDT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MATKHAU)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TRANGTHAI)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TGDANGNHAP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NGAYTAO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NHANVIENQLBAIXE.TENDAYDU)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MANVBAIXE }) |
+            @Html.ActionLink("Details", "Details", new { id=item.MANVBAIXE }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MANVBAIXE })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Webthuexe.Models.BAOHIEM>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.GIATRI)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NGAYSUDUNG)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DASUDUNG)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NGAYCAP)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KHACHHANG.TENDAYDU)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.GIATRI)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NGAYSUDUNG)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DASUDUNG)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NGAYCAP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.KHACHHANG.TENDAYDU)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

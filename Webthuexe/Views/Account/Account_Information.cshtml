@@ -1,0 +1,256 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutAccount.cshtml"; ;
+}
+@model Webthuexe.Models.show
+<link rel="stylesheet" href="~/Content/css/accountinfo.css">
+<section class="vh-100" style="background-color: #f4f5f7;">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+
+            <div class="col col-lg-6 mb-4 mb-lg-0">
+
+                <div class="card mb-3" style="border-radius: .5rem;">
+                    <div><a href="@Url.Action("index", "Home")">< Quay lại trang chủ</a></div>
+                    @foreach (var user in Model.kHACHHANGs)
+                    {
+                        <div class="row g-0">
+                            <div class="col-md-4 gradient-custom text-center text-white"
+                                 style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
+                                @if (user.ANHDAIDIEN == null)
+                                {
+                                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"
+                                         alt="Avatar" id="preview" class="img-fluid my-5" style="width: 80px;" />
+                                }
+                                else
+                                {
+                                    <img src="~/Content/imguser/@user.ANHDAIDIEN"
+                                         alt="Avatar" id="preview" class="rounded-circle shadow-4 img-fluid my-5" style="width: 150px" />
+                                }
+                                <h5>@user.TENDAYDU</h5>
+                                @using (Html.BeginForm("Account_Information", "Account", FormMethod.Post, new { @encType = "multipart/form-data" }))
+                                {
+                                    @Html.AntiForgeryToken()
+                                    @Html.TextBox("ImageUpload", "", new { type = "file", accept = "image/png, image/jpeg", @class = "inputfile" })
+                                    <label for="ImageUpload" >chỉnh sửa</label>
+                                    <div for="ImageUpload" class="save">
+                                        <button type="submit" id="saveButton" onclick="uploadFile()" >Lưu</button>
+                                        <button type="submit" id="cancelButton" onclick="DeleteFile()" >Xóa</button>
+                                    </div>
+                                }
+                                <div><a class="nav-link" href="@Url.Action("Account_update", "Account")">Cập nhật thông tin tài khoản</a></div>
+                                <div><a class="nav-link" href="@Url.Action("password", "Account")">Cập nhật mật khẩu </a></div>
+
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body p-4">
+                                    <h6>Information</h6>
+                                    <hr class="mt-0 mb-4">
+                                    <div class="row pt-1">
+                                        <div class="col-6 mb-3">
+                                            <h6>Ngày sinh</h6>
+                                            @if (user.NGAYSINH == null)
+                                            {
+                                                <p class="text-muted">Cập nhật ngày sinh</p>
+                                            }
+                                            else
+                                            {
+                                                <p class="text-muted">@user.NGAYSINH</p>
+                                            }
+                                        </div>
+                                        <div class="col-6 mb-3">
+                                            <h6>Giới tính</h6>
+                                            @if (@user.GIOITINH == true)
+                                            {
+                                                <p class="text-muted">Nam</p>
+                                            }
+                                            else
+                                            {
+                                                <p class="text-muted">Nữ</p>
+                                            }
+                                        </div>
+                                    </div>
+                                    <div class="row pt-1">
+
+                                        <div>
+                                            <h6>Email</h6>
+                                            <p class="text-muted">@user.Email</p>
+                                        </div>
+
+
+                                    </div>
+                                    <div class="row pt-1">
+                                        <div class="col-6 mb-3">
+                                            <h6>Phone</h6>
+                                            <p class="text-muted">@user.SDT</p>
+                                        </div>
+                                    </div>
+                                    <div class="row pt-1">
+                                        <div class="col-6 mb-3">
+                                            <h6>CCCD</h6>
+                                            @if (user.ANHCCCDSAU == null)
+                                            {
+                                                <a href="@Url.Action("CCCDupdate","Account")"><p class="text-muted" style="color: deepskyblue !important">Cập nhật CCCD</p></a>
+                                            }
+
+                                            else
+                                            {
+                                                if (user.CCCD == null)
+                                                {
+                                                    <p class="text-muted" style="color: forestgreen">Đã cập nhật thành công chờ duyệt</p>
+                                                }
+                                                else
+                                                {
+                                                    <p class="text-muted" >@user.CCCD</p>
+                                                }
+                                            }
+                                        </div>
+                                        <div class="col-6 mb-3">
+                                            <h6>Bằng lái (Nếu có)</h6>
+                                            @if (user.ANHBLTRUOC == null)
+                                            {
+                                                <a href="@Url.Action("licencedrive","Account")"><p class="text-muted" style="color: deepskyblue !important">Cập nhật CCCD</p></a>
+                                            }
+
+                                            else
+                                            {
+                                                if (user.BANGLAI == null)
+                                                {
+                                                    <p class="text-muted" style="color: forestgreen">Đã cập nhật thành công chờ duyệt</p>
+                                                }
+                                                else
+                                                {
+                                                    <p class="text-muted">@user.BANGLAI</p>
+                                                }
+                                            }
+                                        </div>
+                                    </div>
+                                    <div class="row pt-1">
+
+                                        <h6>Nơi ở</h6>
+                                        @foreach (var tp in Model.tTHANHPHO_TINHs.Where(n => n.MATP == user.MATP))
+                                        {
+                                            foreach (var q in Model.qUAN_HUYENs.Where(n => n.MAQ == user.MAQ))
+                                            {
+                                                foreach (var px in Model.pHUONG_XAs.Where(n => n.MAXP == user.MAXP))
+                                                {
+                                                    <p class="text-muted">@user.SONHA,@px.TENXP,@q.TENQH,@tp.TENTP_TINH</p>
+                                                }
+                                            }
+                                        }
+
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    var fileUploaded = false;
+
+    function uploadFile() {
+        // Xử lý logic upload file ở đây
+        // Sau khi upload thành công, đặt biến fileUploaded thành true
+        fileUploaded = true;
+
+        // Kiểm tra nếu file đã được tải lên trước khi hiển thị thông báo
+        if (fileUploaded) {
+            alert('Tải hình ảnh thành công!');
+        } else {
+            alert('Làm ơn tải ảnh lên trước.');
+        }
+
+        function DeleteFile() {
+            // Xử lý logic upload file ở đây
+            // Sau khi upload thành công, đặt biến fileUploaded thành true
+
+
+            // Kiểm tra nếu file đã được tải lên trước khi hiển thị thông báo
+
+            alert('Hủy bỏ tải ảnh thành công!');
+
+        }
+        ImageUpload.onchange = evt => {
+            const image = document.getElementById('preview');
+            image.src = '#';
+            const [file] = ImageUpload.files
+
+            if (file) {
+
+                preview.src = URL.createObjectURL(file);
+
+            }
+        }
+        var btnSave = document.getElementById('saveButton');
+        var btnCancel = document.getElementById('cancelButton');
+
+        // Ẩn button save và button cancel ban đầu
+        btnSave.style.display = 'none';
+        btnCancel.style.display = 'none';
+
+        // Sự kiện khi click vào input file
+        document.getElementById('ImageUpload').addEventListener('change', function () {
+            // Hiển thị button save và button cancel
+            btnSave.style.display = 'block';
+            btnCancel.style.display = 'block';
+        });
+
+        // Sự kiện khi click vào button cancel
+        btnCancel.addEventListener('click', function () {
+            const image = document.getElementById('preview');
+            image.setAttribute('src', imgsrc);
+            // Ẩn button save và button cancel
+            btnSave.style.display = 'none';
+            btnCancel.style.display = 'none';
+        });
+</script>
+<style>
+    btnSave{
+        display: none;
+    }
+    btnCancel {
+        display: none;
+    }
+    .inputfile {
+        width: 0.1px;
+        height: 0.1px;
+        opacity: 0;
+        overflow: hidden;
+        position: absolute;
+        z-index: -1;
+    }
+
+        .inputfile + label {
+            font-size: 1.25em;
+            font-weight: 700;
+            color: white;
+            background-color: black;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+            .inputfile:focus + label,
+            .inputfile + label:hover {
+                background-color: red;
+            }
+
+    .back-index a {
+        margin-left: 20px;
+    }
+
+    .save {
+        overflow: hidden;
+    }
+
+    .back-index a:hover {
+        margin-left: 25px;
+        color: green;
+        transition-duration: 0.7s;
+    }
+</style>

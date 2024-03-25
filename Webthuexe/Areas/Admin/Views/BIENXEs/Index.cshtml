@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Webthuexe.Models.BIENXE>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.SOKM)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MAUSAC)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NGAYNHAP)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TINHTRANG.TENTT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.XE.TENXE)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.SOKM)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MAUSAC)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NGAYNHAP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TINHTRANG.TENTT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.XE.TENXE)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.BIENXE1 }) |
+            @Html.ActionLink("Details", "Details", new { id=item.BIENXE1 }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.BIENXE1 })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,363 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutAccount.cshtml"; ;
+}
+@model Webthuexe.Models.show
+<link rel="stylesheet" href="~/Content/css/accountinfo.css">
+<section class="vh-100" style="background-color: #f4f5f7;">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+
+            <div class="col col-lg-6 mb-4 mb-lg-0">
+
+                <div class="card mb-3" style="border-radius: .5rem;">
+                    <div><a href="#">< Quay lại trang chủ</a></div>
+                    @if (Session["CV"].ToString() != "Nhân viên bãi xe" && Session["CV"].ToString() != "Tài xế")
+                    {
+                        foreach (var user in Model.nHANVIENs)
+                        {
+                            <div class="row g-0">
+                                <div class="col-md-4 gradient-custom text-center text-white"
+                                     style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
+                                    @if (user.ANHDAIDIEN == null)
+                                    {
+                                        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"
+                                             alt="Avatar" class="img-fluid my-5" style="width: 80px;" />
+                                    }
+                                    else
+                                    {
+                                        <img src="~/Content/imgadmin/@user.ANHDAIDIEN"
+                                             alt="Avatar" class="rounded-circle shadow-4 img-fluid my-5" style="width: 150px" />
+                                    }
+                                    <h5>@user.TENDAYDU</h5>
+                                    @using (Html.BeginForm("Account_Information", "Account", FormMethod.Post, new { encType = "multipart/form-data" }))
+                                    {
+                                        @Html.AntiForgeryToken()
+                                        @Html.TextBox("ImageUpload", "", new { type = "file", accept = "*jpg, *png, *webp" })
+                                        <button type="submit" class="">Lưu</button>
+                                    }
+                                    <div><a href="@Url.Action("Account_update", "Account",new {makh = user.MANV}),f">Cập nhật thông tin tài khoản</a></div>
+                                    <div><a href="@Url.Action("password", "Account",new {makh = user.MANV})">Cập nhật mật khẩu </a></div>
+
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body p-4">
+                                        <h6>Information</h6>
+                                        <hr class="mt-0 mb-4">
+                                        <div class="row pt-1">
+                                            <div class="col-6 mb-3">
+                                                <h6>Ngày sinh</h6>
+                                                @if (user.NGAYSINH == null)
+                                                {
+                                                    <p class="text-muted">Cập nhật ngày sinh</p>
+                                                }
+                                                else
+                                                {
+                                                    <p class="text-muted">@user.NGAYSINH</p>
+                                                }
+                                            </div>
+                                            <div class="col-6 mb-3">
+                                                <h6>Giới tính</h6>
+                                                @if (@user.GIOITINH == true)
+                                                {
+                                                    <p class="text-muted">Nam</p>
+                                                }
+                                                else
+                                                {
+                                                    <p class="text-muted">Nữ</p>
+                                                }
+                                            </div>
+                                        </div>
+                                        <div class="row pt-1">
+
+                                            <div class="col-6 mb-3">
+                                                <h6>Email</h6>
+                                                <p class="text-muted">@user.Email</p>
+                                            </div>
+
+
+                                        </div>
+                                        <div class="row pt-1">
+                                            <div class="col-6 mb-3">
+                                                <h6>Phone</h6>
+                                                <p class="text-muted">@user.SDT</p>
+                                            </div>
+                                        </div>
+                                        <div class="row pt-1">
+                                            
+                                                <h6>CCCD</h6>
+                                                @if (user.CCCD == null)
+                                                {
+                                                    <p class="text-muted">Cập nhật CCCD</p>
+                                                }
+
+                                                else
+                                                {
+                                                    <p class="text-muted">@user.CCCD</p>
+                                                }
+                                            
+                                            
+                                        </div>
+                                        <div class="row pt-1">
+
+                                            <h6>Nơi ở</h6>
+                                            @foreach (var tp in Model.tTHANHPHO_TINHs.Where(n => n.MATP == user.MATP))
+                                            {
+                                                foreach (var q in Model.qUAN_HUYENs.Where(n => n.MAQ == user.MAQ))
+                                                {
+                                                    foreach (var px in Model.pHUONG_XAs.Where(n => n.MAXP == user.MAXP))
+                                                    {
+                                                        <p class="text-muted">@user.SONHA,@px.TENXP,@q.TENQH,@tp.TENTP_TINH</p>
+                                                    }
+                                                }
+                                            }
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        }
+                    }
+                    @if (Session["CV"].ToString() == "Nhân viên bãi xe")
+                    {
+                        foreach (var user in Model.nHANVIENs)
+                        {
+                            <div class="row g-0">
+                                <div class="col-md-4 gradient-custom text-center text-white"
+                                     style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
+                                    @if (user.ANHDAIDIEN == null)
+                                    {
+                                        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"
+                                             alt="Avatar" class="img-fluid my-5" style="width: 80px;" />
+                                    }
+                                    else
+                                    {
+                                        <img src="~/Content/imgadmin/@user.ANHDAIDIEN"
+                                             alt="Avatar" class="rounded-circle shadow-4 img-fluid my-5" style="width: 150px" />
+                                    }
+                                    <h5>@user.TENDAYDU</h5>
+                                    <h3>Chức vu: @Session["CV"]</h3>
+                                    @using (Html.BeginForm("Account_Information", "Account", FormMethod.Post, new { encType = "multipart/form-data" }))
+                                    {
+                                        @Html.AntiForgeryToken()
+                                        @Html.TextBox("ImageUpload", "", new { type = "file", accept = "*jpg, *png, *webp" })
+                                        <button type="submit" class="">Lưu</button>
+                                    }
+                                    <div><a href="@Url.Action("Account_update", "Account",new {makh = user.MANV})" class="nav-link">Cập nhật thông tin tài khoản</a></div>
+                                    <div><a href="@Url.Action("password", "Account",new {makh = user.MANV})" class="nav-link">Cập nhật mật khẩu </a></div>
+
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body p-4">
+                                        <h6>Information</h6>
+                                        <hr class="mt-0 mb-4">
+                                        <div class="row pt-1">
+                                            <div class="col-6 mb-3">
+                                                <h6>Ngày sinh</h6>
+                                                @if (user.NGAYSINH == null)
+                                                {
+                                                    <p class="text-muted">Cập nhật ngày sinh</p>
+                                                }
+                                                else
+                                                {
+                                                    <p class="text-muted">@user.NGAYSINH</p>
+                                                }
+                                            </div>
+                                            <div class="col-6 mb-3">
+                                                <h6>Giới tính</h6>
+                                                @if (@user.GIOITINH == true)
+                                                {
+                                                    <p class="text-muted">Nam</p>
+                                                }
+                                                else
+                                                {
+                                                    <p class="text-muted">Nữ</p>
+                                                }
+                                            </div>
+                                        </div>
+                                        <div class="row pt-1">
+
+                                            <div class="col-6 mb-3">
+                                                <h6>Email</h6>
+                                                <p class="text-muted">@user.Email</p>
+                                            </div>
+
+
+                                        </div>
+                                        <div class="row pt-1">
+                                            <div class="col-6 mb-3">
+                                                <h6>Phone</h6>
+                                                <p class="text-muted">@user.SDT</p>
+                                            </div>
+                                        </div>
+                                        <div class="row pt-1">
+                                            <div class="col-6 mb-3">
+                                                <h6>CCCD</h6>
+                                                @if (user.CCCD == null)
+                                                {
+                                                    <p class="text-muted">Cập nhật CCCD</p>
+                                                }
+
+                                                else
+                                                {
+                                                    <p class="text-muted">@user.CCCD</p>
+                                                }
+                                            </div>
+                                        </div>
+                                        <div class="row pt-1">
+
+                                            <h6>Nơi ở</h6>
+                                            @foreach (var tp in Model.tTHANHPHO_TINHs.Where(n => n.MATP == user.MATP))
+                                            {
+                                                foreach (var q in Model.qUAN_HUYENs.Where(n => n.MAQ == user.MAQ))
+                                                {
+                                                    foreach (var px in Model.pHUONG_XAs.Where(n => n.MAXP == user.MAXP))
+                                                    {
+                                                        <p class="text-muted">@user.SONHA,@px.TENXP,@q.TENQH,@tp.TENTP_TINH</p>
+                                                    }
+                                                }
+                                            }
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        }
+                    }
+                    @if (Session["CV"].ToString() == "Tài xế")
+                    {
+                        foreach (var user in Model.tAIXEs)
+                        {
+                            <div class="row g-0">
+                                <div class="col-md-4 gradient-custom text-center text-white"
+                                     style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
+                                    @if (user.ANHDAIDIEN == null)
+                                    {
+                                        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"
+                                             alt="Avatar" class="img-fluid my-5" style="width: 80px;" />
+                                    }
+                                    else
+                                    {
+                                        <img src="~/Content/imgadmin/@user.ANHDAIDIEN"
+                                             alt="Avatar" class="rounded-circle shadow-4 img-fluid my-5" style="width: 150px" />
+                                    }
+                                    <h5>@user.TENDAYDU</h5>
+                                    <h3>Chức vu: @Session["CV"]</h3>
+                                    @using (Html.BeginForm("Account_Information", "Account", FormMethod.Post, new { encType = "multipart/form-data" }))
+                                    {
+                                        @Html.AntiForgeryToken()
+                                        @Html.TextBox("ImageUpload", "", new { type = "file", accept = "*jpg, *png, *webp" })
+                                        <button type="submit" class="">Lưu</button>
+                                    }
+                                    <div><a href="@Url.Action("Account_update", "Account",new {makh = user.MATAIXE})">Cập nhật thông tin tài khoản</a></div>
+                                    <div><a href="@Url.Action("password", "Account",new {makh = user.MATAIXE})">Cập nhật mật khẩu </a></div>
+
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="card-body p-4">
+                                        <h6>Information</h6>
+                                        <hr class="mt-0 mb-4">
+                                        <div class="row pt-1">
+                                            <div class="col-6 mb-3">
+                                                <h6>Ngày sinh</h6>
+                                                @if (user.NGAYSINH == null)
+                                                {
+                                                    <p class="text-muted">Cập nhật ngày sinh</p>
+                                                }
+                                                else
+                                                {
+                                                    <p class="text-muted">@user.NGAYSINH</p>
+                                                }
+                                            </div>
+                                            <div class="col-6 mb-3">
+                                                <h6>Giới tính</h6>
+                                                @if (@user.GIOTINH == true)
+                                                {
+                                                    <p class="text-muted">Nam</p>
+                                                }
+                                                else
+                                                {
+                                                    <p class="text-muted">Nữ</p>
+                                                }
+                                            </div>
+                                        </div>
+                                        <div class="row pt-1">
+
+                                            <div class="col-6 mb-3">
+                                                <h6>Email</h6>
+                                                <p class="text-muted">@user.Email</p>
+                                            </div>
+
+
+                                        </div>
+                                        <div class="row pt-1">
+                                            <div class="col-6 mb-3">
+                                                <h6>Phone</h6>
+                                                <p class="text-muted">@user.SDT</p>
+                                            </div>
+                                        </div>
+                                        <div class="row pt-1">
+                                            <div class="col-6 mb-3">
+                                                <h6>CCCD</h6>
+                                                @if (user.CCCD == null)
+                                                {
+                                                    <p class="text-muted">Cập nhật CCCD</p>
+                                                }
+
+                                                else
+                                                {
+                                                    <p class="text-muted">@user.CCCD</p>
+                                                }
+                                            </div>
+                                            <div class="col-6 mb-3">
+                                                <h6>Bằng lái</h6>
+                                                @if (user.ANHBLTRUOC == null)
+                                                {
+                                                    <a href="@Url.Action("licenedrive","loginadmin")" style="color: aquamarine !important"><p class="text-muted">Cập nhật bằng lái</p></a>
+                                                }
+                                                else
+                                                {
+                                                    <p class="text-muted">@user.BANGLAI</p>
+                                                }
+                                            </div>
+                                        </div>
+                                        <div class="row pt-1">
+
+                                            <h6>Nơi ở</h6>
+                                            @foreach (var tp in Model.tTHANHPHO_TINHs.Where(n => n.MATP == user.MATP))
+                                            {
+                                                foreach (var q in Model.qUAN_HUYENs.Where(n => n.MAQ == user.MAQ))
+                                                {
+                                                    foreach (var px in Model.pHUONG_XAs.Where(n => n.MAXP == user.MAXP))
+                                                    {
+                                                        <p class="text-muted">@user.SONHA,@px.TENXP,@q.TENQH,@tp.TENTP_TINH</p>
+                                                    }
+                                                }
+                                            }
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        }
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<style>
+
+    .back-index a {
+        margin-left: 20px;
+    }
+
+        .back-index a:hover {
+            margin-left: 25px;
+            color: green;
+            transition-duration: 0.7s;
+        }
+</style>

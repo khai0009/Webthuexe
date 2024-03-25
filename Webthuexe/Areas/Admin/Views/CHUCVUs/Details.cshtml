@@ -1,0 +1,27 @@
+﻿@model Webthuexe.Models.CHUCVU
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>CHUCVU</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TENCV)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TENCV)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MACV }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,15 @@
+﻿@model Webthuexe.Models.show
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPage1.cshtml";
+}
+  
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+    @Html.Partial("~/Areas/Admin/Views/calendar/calendar.cshtml")
+

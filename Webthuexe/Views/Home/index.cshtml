@@ -1,0 +1,160 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model Webthuexe.Models.show
+<section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('../Content/images/bg_3.jpg');" data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
+            <div class="col-md-9 ftco-animate pb-5">
+                <p class="breadcrumbs"><span class="mr-2"><a href="@Url.Action("index", "Home")">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Cars <i class="ion-ios-arrow-forward"></i></span></p>
+                <h1 class="mb-3 bread">Chọn xe của bạn</h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="ftco-section bg-light">
+    
+    <div class="container">
+        <nav class="row" style="width: 50%;margin-bottom: 15px">
+            <div class="col" style="padding-right: 2px;padding-left: 2px">
+                <select value="hang">
+                    <option disabled selected>-chọn hãng xe-</option>
+                        @foreach (var hang in Model.hangxes.ToList())
+                        {
+                            <option value="@hang.MAHANG">@hang.TENHANG</option>
+                        }
+                  
+
+                </select>
+            </div>
+            <div class="col" style="padding-right: 2px;padding-left: 2px; width: auto">
+                <select name="sg" >
+                    <option disabled selected> -chọn số chỗ ngồi-</option>
+                    @foreach (var hang in Model.sOGHEs.ToList())
+                    {
+                        <option value="@hang.SOGHE1">@hang.SOGHE1</option>
+                    }
+
+                </select>
+            </div>
+            <div class="col" style="padding-right: 2px;padding-left: 2px">
+                <select name="nl">
+                    <option disabled selected>-chọn nhiên liệu-</option>
+                        @foreach (var hang in Model.nHIENLIEUs.ToList())
+                        {
+                            <option value="@hang.MANL">@hang.TENNL</option>
+                        }
+    
+                </select>
+            </div>
+            <div class="col" style="padding-right: 2px;padding-left: 2px">
+                <select name="ms">
+                    <option disabled selected>-chọn nhiên liệu-</option>
+                    
+                        @foreach (var hang in Model.bien.Select(n => n.MAUSAC).Distinct().ToList())
+                        {
+                            <option value="">@hang</option>
+                        }
+                
+                </select>
+            </div>
+            <button style="submit" class="btn-google">
+                Tìm kiếm
+            </button>
+        </nav>
+        @using (Html.BeginForm("index", "Home", FormMethod.Post))
+        {
+
+
+        }
+
+            <div class="row">
+                @foreach (var xe in Model.xes.ToList())
+                {
+
+
+                    int? soluong = Model.bien.Where(n => n.MAXE == xe.MAXE && n.MATT == "A").Count();
+
+                    <div class="col-md-4">
+                        <div class="car-wrap rounded ftco-animate">
+                            @if (soluong > 0)
+                            {
+                                <div class="img rounded d-flex align-items-end " style="background-image: url(../Content/images/@xe.ANH);"></div>
+                            }
+                            else
+                            {
+                                <div class="img rounded d-flex align-items-end " style="background-image: url(../Content/images/@xe.ANH); opacity: 0.2"></div>
+                            }
+
+                            <div class="text">
+                                <h2 class="mb-0"><a href="@Url.Action("Detail", "Home", new {maxe = xe.MAXE})">@xe.TENXE</a></h2>
+                                <div class="d-flex mb-3">
+
+                                    <p class="price ml-auto">@xe.GIATHUE <span>/ngày</span></p>
+                                    <p class="price ml-auto">@xe.GIATAIXE <span>/ngày</span></p>
+                                    <p class="price ml-auto">@xe.GIATAIXEKH <span>/ngày</span></p>
+                                </div>
+                                <p class="d-flex mb-0 d-block">
+
+                                    @if (Session["IDuser"] != null)
+                                    {
+                                        if (soluong > 0)
+                                        {
+                                            <a href="@Url.Action("Rent_car", "Rent", new { maxe = xe.MAXE, tulai = true }) " style="background-color: red !important" class="btn btn-primary py-2 mr-1">Tự lái</a>
+                                            <a href="@Url.Action("Rent_car", "Rent", new { maxe = xe.MAXE ,tulai = false,khuhoi = true})" class="btn btn-primary py-2 mr-1">2 chiều</a>
+                                            <a href="@Url.Action("Rent_car", "Rent", new { maxe = xe.MAXE ,tulai = false,khuhoi = false}) " class="btn btn-primary py-2 mr-1 " style="background-color: purple !important">1 chiều</a>
+                                        }
+                                        else
+                                        {
+                                            <center><div class="font-italic font-weight-bold" style="color: red">Đã hết</div></center>
+
+                                        }
+                                    }
+                                    else
+                                    {
+                                        if (soluong > 0)
+                                        {
+                                            <a href="@Url.Action("login", "Login")" class="btn btn-primary py-2 mr-1" style="background-color: red !important">Tự lái</a>
+                                            <a href="@Url.Action("login", "Login")" class="btn btn-primary py-2 mr-1">2 chiều</a>
+                                            <a href="@Url.Action("login", "Login")" class="btn btn-primary py-2 mr-1" style="background-color: purple !important">1 chiều</a>
+                                          
+                                        }
+                                        else
+                                        {
+                                            <center>
+                                                <div class="font-italic font-weight-bold" style="color: red">Đã hết</div></center>
+                                        }
+
+                                    }
+
+                                        
+                                        </p>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="row mt-5">
+                <div class="col text-center">
+                    <div class="block-27">
+                        <ul>
+
+                            @for (var sotrang = 1; sotrang <= int.Parse(Session["sotrang"].ToString()); sotrang++)
+                            {
+
+                                <li><a href="@Url.Action("index", "Home", new {@c_trang = sotrang})">@sotrang</a></li>
+
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>
+
+<script>
+
+</script>

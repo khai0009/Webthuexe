@@ -1,0 +1,179 @@
+﻿@model Webthuexe.Models.TAIXE
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TAIXE</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TENDAYDU)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TENDAYDU)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LOT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LOT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TEN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TEN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GIOTINH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GIOTINH)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TUOI)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TUOI)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NGAYSINH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NGAYSINH)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SONHA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SONHA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SDT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SDT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BANGLAI)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BANGLAI)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CCCD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CCCD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ANHDAIDIEN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ANHDAIDIEN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.XACTHUCCC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.XACTHUCCC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.XACTHUCBL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.XACTHUCBL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DUONG)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DUONG)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PHUONG_XA.TENXP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PHUONG_XA.TENXP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QUAN_HUYEN.TENQH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QUAN_HUYEN.TENQH)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.THANHPHO_TINH.TENTP_TINH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.THANHPHO_TINH.TENTP_TINH)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TKTAIXE.SDT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TKTAIXE.SDT)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MATAIXE }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

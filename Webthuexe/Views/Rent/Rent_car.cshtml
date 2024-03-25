@@ -1,0 +1,177 @@
+﻿
+@{
+    ViewBag.Title = "Rent_car";
+    Layout = "~/Views/Shared/_LayoutAccount.cshtml";
+}
+@model Webthuexe.Models.show
+<link rel="stylesheet" href="~/Content/css/rent.css" />
+<div class="request-form ftco-animate bg-primary fadeInUp ftco-animated">
+    <div class="container mt-5 p-3 rounded cart">
+        @if (Session["MAHD"] == null)
+        {
+            <center><h6 class="mb-0">Chưa có xe trong danh sách, <a href="@Url.Action("index", "Home")">Thuê xe tại đây</a></h6></center>
+        }
+        else
+        {
+    <div class="row no-gutters">
+        <div class="col-md-8">
+            <div class="product-details mr-2">
+                <div class="d-flex flex-row align-items-center"><a href="@Url.Action("index", "Home")"><i class="fa fa-long-arrow-left"></i><span class="ml-2">Quay lại</span></a></div>
+                <hr>
+
+                <h6 class="mb-0">Danh sách thuê xe</h6>
+                
+                <div class="croll-list">
+                    @foreach (var list in Model.hOADONTHUEXEs.ToList())
+                    {
+                        foreach (var xe in Model.xes.Where(n => n.MAXE == list.BIENXE1.MAXE).ToList())
+                        {
+                            <div class="d-flex justify-content-between align-items-center mt-3 p-2 items rounded">
+
+                                <div class="d-flex flex-row">
+
+                                    <a href="@Url.Action("index", "Home", new {tiemkiem = xe.TENXE})">
+                                        <img class="rounded" src="~/Content/images/@xe.ANH" width="100">
+                                        <div class="ml-2">
+                                            <span class="font-weight-bold d-block">@xe.TENXE&nbsp;</span>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="d-flex flex-row align-items-center">
+                                    <span class="d-block ml-5 font-weight-bold"><input type="checkbox" checked="@list.COTAIXE" name="cotaixe" disabled id="dis" /><label>Có tài xế</label></span>
+                                    @{
+                                        if (list.KHUHOI == true)
+                                        {
+                                            <span class="d-block ml-5 font-weight-bold"><input type="checkbox" checked="@list.KHUHOI" name="cotaixe" disabled id="dis" /><label>Khứ hồi</label></span>
+                                        }
+                                        else
+                                        {
+                                            <span class="d-block ml-5 font-weight-bold"><input type="checkbox" checked="@list.KHUHOI" name="cotaixe" disabled id="dis" /><label>Khứ hồi</label></span>
+                                        }
+                                    }
+                                    @{
+
+                                        if (list.COTAIXE == false)
+                                        {
+                                            <span class="d-block ml-5 font-weight-bold">@xe.GIATHUE/Ngày</span>
+
+                                        }
+                                        else
+                                        {
+                                            if (list.KHUHOI == true)
+                                            {
+                                                <span class="d-block ml-5 font-weight-bold">@xe.GIATAIXEKH/Ngày</span>
+                                            }
+                                            else
+                                            {
+                                                <span class="d-block ml-5 font-weight-bold">@xe.GIATAIXE/Ngày</span>
+                                            }
+                                        }
+
+                                    }
+
+                                    <span class="d-block ml-5 font-weight-bold">@list.CHIPHITHUE</span>
+                                    <span class="d-block ml-5">
+                                        @using (Html.BeginForm("Rent_car", "Rent", new { maxexoa = list.BIENXE }, FormMethod.Post))
+                                        {
+
+                                            <button name="xoa" value="true" onclick="return confirm('Bạn có chắc muốn xóa?');"><i class="fa fa-trash-o ml-3 text-black-50"></i></button>
+                                        }
+                                    </span>
+                                </div>
+
+
+                            </div>
+                                            }
+
+                                        }
+                </div>
+            </div>
+        </div>
+       
+            <div class="col-md-4">
+                <div class="payment-info">
+                    @using (Html.BeginForm("Bill", "Rent", new { datxe = true }, FormMethod.Post))
+                    {
+                        <h2>Điền thông tin chuyến đi</h2>
+                        <div class="form-group">
+                            <label for="" class="label">Nơi đón</label>
+                            <input type="text" list="noidon" class="form-control" name="noidon" placeholder="Nơi đón...">
+                            <datalist id="noidon">
+                                <option value="Nhà riêng"></option>
+                                <option value="Sơn bay tân sơn nhất"></option>
+                            </datalist>
+                        </div>
+                        foreach (var list in Model.hOADONTHUEXEs.ToList())
+                        {
+                            if (list.COTAIXE == true)
+                            {
+                                <div class="form-group">
+                                    <label for="" class="label">Nơi đi</label>
+                                    <input type="text" list="" class="form-control" name="noidi" placeholder="Nơi đi...">
+                                </div>
+
+                                <div class="d-flex">
+
+                                    <div class="form-group mr-2">
+                                        <label for="" class="label">Ngày nhận</label>
+                                        <input type="text" class="form-control" name="ngaydi" id="book_pick_date" placeholder="Ngày đi/nhận">
+                                    </div>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="d-flex">
+                                    <div class="form-group mr-2">
+                                        <label for="" class="label">Ngày nhận</label>
+                                        <input type="text" class="form-control" name="ngaydi" id="book_pick_date" placeholder="Ngày đi/nhận">
+                                    </div>
+                                    <div class="form-group ml-2">
+                                        <label for="" class="label">Ngày trả</label>
+                                        <input type="text" class="form-control" name="ngaytra" id="book_off_date" placeholder="Ngày về/trả">
+                                    </div>
+                                </div>
+                            }
+
+
+                        }
+                        foreach (var tiencoc in Model.hOADONTHUEXEs.ToList())
+                        {
+                            <div class="label">
+                                Tiền cọc:
+                                @tiencoc.TIENCOC
+                            </div>
+                        }
+                        <div class="form-group">
+                            <label for="" class="label">Ghi chú (nếu có)</label>
+                            <input type="text" class="form-control " name="ghichu" placeholder="Ghi chú" autocomplete="off">
+                        </div>
+                        <div class="form-group">
+                            <label for="" class="label">Thời gian đi/nhận</label>
+                            <input type="text" class="form-control ui-timepicker-input" name="gio" id="time_pick" placeholder="Thời gian" autocomplete="off">
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="Thuê xe ngay" class="btn btn-secondary py-3 px-4">
+                        </div>
+                    }
+                    </div>
+            </div>
+
+        
+            <style>
+                .croll-list {
+                    overflow: auto;
+                        white-space: nowrap;
+                        max-height: 400px;
+                }
+                #dis:disabled + label{
+                    color: red;
+                }
+            </style>
+        }
+    </div>
+                                        }
+</div>
+                                        
+</div>

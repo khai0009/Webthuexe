@@ -1,0 +1,121 @@
+﻿@model Webthuexe.Models.show
+@{
+
+    DateTime hour = new DateTime();
+    var gio = hour;
+    DateTime ngaydau = ViewBag.ngaydau;
+
+    using (Html.BeginForm(new { dautien = ngaydau }))
+    {
+        <button name="giam" value="1">lui</button>
+        <button name="hientai" value="1">hientai</button>
+        <button name="tang" value="1">tien</button>
+    }
+    DateTime lichchay;
+<table class="table table-dark table-striped">
+    <thead>
+        <tr>
+            <th>    </th>
+            @for (int i = 1; i <= 7; i++)
+            {
+                <th>
+                    @if (i != 7)
+                    {
+                        <div>Thứ @(i + 1)</div>
+                    }
+                    else
+                    { <div> Chủ nhật </div>}
+                    @ngaydau.AddDays(i).ToString("dd-MM-yyyy")
+                </th>
+
+            }
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @for (int i = 0; i < 24; i++)
+        {
+
+
+            lichchay = new DateTime(ngaydau.Year, ngaydau.Month, ngaydau.Day, gio.Hour, gio.Minute, gio.Millisecond);
+            <tr>
+                <td>@gio.ToString("hh:mmtt")</td>
+                <td>
+                    @foreach (var lichchitiet in Model.hOADONTHUEXEs.Where(n => n.NGAYDI_NHAN == @lichchay.AddDays(1)).ToList())
+                    {
+                        <a>
+                            @lichchitiet.MAHD
+                            @lichchitiet.MAKH
+                        </a>
+                    }
+                </td>
+
+                <td>
+                    @foreach (var lichchitiet in Model.hOADONTHUEXEs.Where(n => n.NGAYDI_NHAN == @lichchay.AddDays(2)).ToList())
+                    {
+                        <a></a>
+                    }
+                </td>
+                <td>
+                    @foreach (var lichchitiet in Model.hOADONTHUEXEs.Where(n => n.NGAYDI_NHAN == @lichchay.AddDays(3)).ToList())
+                    {
+                        <a>
+                            <p>Mã hóa đơn: @lichchitiet.MAHD</p>
+                            <P>Mã khách hàng @lichchitiet.MAKH</P>
+                        </a>
+                    }
+                </td>
+                <td>
+                    @foreach (var lichchitiet in Model.hOADONTHUEXEs.Where(n => n.NGAYDI_NHAN == lichchay.AddDays(4)).ToList())
+                    {
+                        <a>
+                            @lichchitiet.MAHD
+                            @lichchitiet.MAKH
+                        </a>
+                    }
+                </td>
+                <td>
+                    @foreach (var lichchitiet in Model.hOADONTHUEXEs.Where(n => n.NGAYDI_NHAN == lichchay.AddDays(5)).ToList())
+                    {
+                        <a>
+                            @lichchitiet.MAHD
+                            @lichchitiet.MAKH
+                        </a>
+                    }
+                </td>
+                <td>
+                    @foreach (var lichchitiet in Model.hOADONTHUEXEs.Where(n => n.NGAYDI_NHAN == lichchay.AddDays(6)).ToList())
+                    {
+                        <a>
+                            @lichchitiet.MAHD
+                            @lichchitiet.MAKH
+                        </a>
+                    }
+                </td>
+                <td>
+                    @foreach (var lichchitiet in Model.hOADONTHUEXEs.Where(n => n.NGAYDI_NHAN == lichchay.AddDays(6)).ToList())
+                    {
+                        <a>
+                            @lichchitiet.MAHD
+                            @lichchitiet.MAKH
+                        </a>
+                    }
+                </td>
+            </tr>
+            gio = gio.AddMinutes(30);
+        }
+
+
+    </tbody>
+</table>
+
+
+                }
+
+<script>
+    function lich() {
+        new Date();
+        let thu = Date.getHour();
+    }
+</script>

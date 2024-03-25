@@ -1,0 +1,115 @@
+﻿@model Webthuexe.Models.XE
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>XE</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TENXE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TENXE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NXS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NXS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LUOTTHUE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LUOTTHUE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GIATHUE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GIATHUE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GIATAIXE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GIATAIXE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GIATAIXEKH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GIATAIXEKH)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ANH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ANH)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MIEUTA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MIEUTA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TUDONG)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TUDONG)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HANGXE.TENHANG)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HANGXE.TENHANG)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NHIENLIEU.TENNL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NHIENLIEU.TENNL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SOGHE.SOGHE1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SOGHE.SOGHE1)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MAXE }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
