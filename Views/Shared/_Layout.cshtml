@@ -1,0 +1,242 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Myworld - Lái xe muôn nơi</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/Content/css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="~/Content/css/animate.css">
+    <link href="~/Content/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="~/Content/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="~/Content/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/Content/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/Content/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="~/Content/css/magnific-popup.css">
+
+    <link rel="stylesheet" href="~/Content/css/aos.css">
+
+    <link rel="stylesheet" href="~/Content/css/ionicons.min.css">
+
+    <link rel="stylesheet" href="~/Content/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="~/Content/css/jquery.timepicker.css">
+
+
+    <link rel="stylesheet" href="~/Content/css/flaticon.css">
+    <link rel="stylesheet" href="~/Content/css/icomoon.css">
+    <link rel="stylesheet" href="~/Content/css/style.css">
+    <link rel="stylesheet" href="~/Content/css/custome.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+        <div class="container">
+            <a class="navbar-brand" href="@Url.Action("index", "Home")">My<span>World</span></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="oi oi-menu"></span> Menu
+            </button>
+
+            <div class="collapse navbar-collapse" id="ftco-nav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item " style="padding-left: 0px; padding-right: 0px; "><a Class="nav-link" href="@Url.Action("index", "Home")" style="padding-left: 10px;padding-right:10px;">Thuê xe</a></li>
+                    <li class="nav-item " style="padding-left: 0px; padding-right: 0px; "><a Class="nav-link" href="@Url.Action("about", "Home")" style="padding-left: 10px;padding-right:10px;">Giới thiệu</a></li>
+                    @if (Session["Username"] == null)
+                    {
+                        <li class="nav-item " style="padding-left: 5px;padding-right:5px;">
+                            <a Class="nav-link" href="@Url.Action("login", "Login")" style="padding-left: 10px;padding-right:10px;">Đăng nhập</a>
+
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item " style="padding-left: 0px; padding-right: 0px;"><a Class="nav-link" href="@Url.Action("Rent_car", "Rent")" style="padding-left: 10px;padding-right:10px;">Danh sách xe<br>đang thuê</a></li>
+                        <li class="nav-item " style="padding-left: 0px; padding-right: 0px;">
+                            <p class="nav-link">Chào mừng <br> @Session["Username"].ToString()</p><ul class="dropdown">
+                                <li><a href="@Url.Action("Account_information", "Account", new { makh = Session["IDuser"] })">thong tin tai khoản</a></li>
+                                <li><a href="@Url.Action("index", "Home", new { dx = false })">Đăng xuất</a></li>
+                            </ul>
+                        </li>
+
+                    }
+
+                </ul>
+                @using (Html.BeginForm("index", "Home", FormMethod.Post, new { @class = "input-group mb-3" }))
+                {
+
+
+                    <input type="text" class="form-control" name="timkiem" placeholder="Search for car..." aria-label="Search" aria-describedby="search-button" style="width: 60%" width="50">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="submit" id="search-button">Search</button>
+
+                    </div>
+
+
+                }
+            </div>
+
+        </div>
+    </nav>
+    @RenderBody()
+    <!-- END nav -->
+    <footer class="ftco-footer ftco-bg-dark ftco-section">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2"><a href="#" class="logo">Car<span>book</span></a></h2>
+                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                        <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
+                            <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+                            <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+                            <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4 ml-md-5">
+                        <h2 class="ftco-heading-2">Information</h2>
+                        <ul class="list-unstyled">
+                            <li><a href="#" class="py-2 d-block">About</a></li>
+                            <li><a href="#" class="py-2 d-block">Services</a></li>
+                            <li><a href="#" class="py-2 d-block">Term and Conditions</a></li>
+                            <li><a href="#" class="py-2 d-block">Best Price Guarantee</a></li>
+                            <li><a href="#" class="py-2 d-block">Privacy &amp; Cookies Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2">Customer Support</h2>
+                        <ul class="list-unstyled">
+                            <li><a href="#" class="py-2 d-block">FAQ</a></li>
+                            <li><a href="#" class="py-2 d-block">Payment Option</a></li>
+                            <li><a href="#" class="py-2 d-block">Booking Tips</a></li>
+                            <li><a href="#" class="py-2 d-block">How it works</a></li>
+                            <li><a href="#" class="py-2 d-block">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2">Have a Questions?</h2>
+                        <div class="block-23 mb-3">
+                            <ul>
+                                <li><span class="icon icon-map-marker"></span><span class="text">67 Đường Trường Chinh</span></li>
+                                <li><a href="#"><span class="icon icon-phone"></span><span class="text">(+84)123456789</span></a></li>
+                                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@myworld.com</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-center">
+
+                    <p>Copyright  &copy; 2024</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <!-- loader -->
+    <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" /><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg></div>
+
+    <script src="~/Scripts/js/jquery.min.js"></script>
+    <script src="~/Scripts/js/jquery-migrate-3.0.1.min.js"></script>
+    <script src="~/Scripts/js/popper.min.js"></script>
+    <script src="~/Scripts/js/bootstrap.min.js"></script>
+    <script src="~/Scripts/js/jquery.easing.1.3.js"></script>
+    <script src="~/Scripts/js/jquery.waypoints.min.js"></script>
+    <script src="~/Scripts/js/jquery.stellar.min.js"></script>
+    <script src="~/Scripts/js/owl.carousel.min.js"></script>
+    <script src="~/Script/js/jquery.magnific-popup.min.js"></script>
+    <script src="~/Scripts/js/aos.js"></script>
+    <script src="~/Scripts/js/jquery.animateNumber.min.js"></script>
+    <script src="~/Scripts/js/bootstrap-datepicker.js"></script>
+    <script src="~/Scripts/js/jquery.timepicker.min.js"></script>
+    <script src="~/Scripts/js/scrollax.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+    <script src="~/Scripts/js/google-map.js"></script>
+    <script src="~/Scripts/js/main.js"></script>
+    <script src="~/Content/vendor/jquery/jquery.min.js"></script>
+    <script src="~/Content/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/Content/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="~/Script/js/sb-admin-2.min.js"></script>
+    <script src="~/Content/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/Content/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+    <script src="~/Script/demo/datatables-demo.js"></script>
+    <style>
+        .dropdown {
+            list-style: none;
+        }
+
+            .dropdown li:hover {
+                color: lightgreen;
+            }
+
+            .dropdown li a {
+                padding-left: 3px;
+                padding-right: 3px;
+                text-decoration: none;
+            }
+
+        ul li ul {
+            padding-top: 3px;
+            padding-bottom: 3px;
+            padding-left: 3px;
+            padding-right: 3px;
+            background: white;
+            border-radius: 4px;
+            visibility: hidden;
+            opacity: 0;
+            min-width: 5rem;
+            position: absolute;
+            margin-top: 0.5px;
+            display: none;
+        }
+
+            ul li:hover > ul,
+            ul li ul:hover {
+                visibility: visible;
+                opacity: 1;
+                display: block;
+                position: absolute;
+                transition-duration: 2s;
+            }
+
+            ul li ul li {
+                border-bottom: solid 1px black;
+                padding-bottom: 1px;
+                clear: both;
+                width: 100%;
+            }
+
+        .dropdown {
+        }
+
+        .my {
+            color: #f8f8f8;
+            font-family: 'Raleway',sans-serif;
+            font-size: 18px;
+            font-weight: 500;
+            line-height: 32px;
+            margin-top: 10px;
+            margin-bottom: auto;
+            width: auto;
+            text-align: center;
+        }
+
+        .nav-item {
+            width: 110px;
+            height: auto;
+            text-align: center;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+    </style>
+
+</body>
+</html>

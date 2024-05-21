@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Webthuexe.Models.CHITIETLICHCHAY>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DAHOANTHANH)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NOIDON)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NOIDI)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TKTAIXE.SDT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CHITIETTHUEXE.BIENXE)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DAHOANTHANH)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NOIDON)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NOIDI)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TKTAIXE.SDT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CHITIETTHUEXE.BIENXE)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

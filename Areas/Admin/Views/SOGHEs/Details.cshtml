@@ -1,0 +1,27 @@
+﻿@model Webthuexe.Models.SOGHE
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>SOGHE</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SOGHE1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SOGHE1)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MASG }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

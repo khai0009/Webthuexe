@@ -1,0 +1,51 @@
+﻿@model Webthuexe.Models.PHIEUBAOTRI
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PHIEUBAOTRI</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NGAYBA0TRI)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NGAYBA0TRI)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TONGCHIPHI)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TONGCHIPHI)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NHANVIEN.TENDAYDU)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NHANVIEN.TENDAYDU)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NHANVIENQLBAIXE.TENDAYDU)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NHANVIENQLBAIXE.TENDAYDU)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MAPBT }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

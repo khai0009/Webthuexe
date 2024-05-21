@@ -1,0 +1,137 @@
+﻿@model Webthuexe.Models.XE
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>XE</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TENXE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TENXE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NXS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NXS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LUOTTHUE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LUOTTHUE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GIATHUE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GIATHUE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DONVITINH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DONVITINH)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SOKM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SOKM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NGAYNHAP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NGAYNHAP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MAUSAC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MAUSAC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ANH)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ANH)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MIEUTA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MIEUTA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HANGXE.TENHANG)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HANGXE.TENHANG)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NHIENLIEU.TENNL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NHIENLIEU.TENNL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SOGHE.SOGHE1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SOGHE.SOGHE1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TINHTRANG.TENTT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TINHTRANG.TENTT)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Webthuexe.Models.PHIEUBAOTRI>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NGAYBA0TRI)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TONGCHIPHI)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NHANVIEN.TENDAYDU)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NHANVIENQLBAIXE.TENDAYDU)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NGAYBA0TRI)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TONGCHIPHI)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NHANVIEN.TENDAYDU)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NHANVIENQLBAIXE.TENDAYDU)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MAPBT }) |
+            @Html.ActionLink("Details", "Details", new { id=item.MAPBT }) |
+        </td>
+    </tr>
+}
+
+</table>

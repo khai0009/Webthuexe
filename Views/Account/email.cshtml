@@ -1,0 +1,73 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layoutlogin.cshtml";
+}
+@model Webthuexe.Models.show
+<link rel="stylesheet" href="~/Content/css/custome.css">
+<div class="card text-center">
+
+    <div class="card-body">
+
+        <h5 class="card-title mb-4">Nhập email</h5>
+        @using (Html.BeginForm("register", "Login", FormMethod.Post))
+        {
+
+
+
+
+if (Session["checkemail"].ToString() == "false")
+                {
+                    <p style="color: red; font-weight:bold">Email không tồn tại hoăc không hơpj lệ</p>
+                }
+            foreach (var info in Model.tKKHACHHANGs.ToList())
+            {
+                <div class="row form-group">
+                    <div class="back-index">
+                        <a href="@Url.Action("login", "Login",new {area = "",makh=info.MAKH})" class="float-left">< Quay lại đăng nhập</a>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col">
+                        <input type="text" class="form-control" name="email" maxlength="16" placeholder="email đã đăng ký tài khoản">
+                    </div>
+                </div>
+
+            }
+            <button type="submit" class="btn btn-primary btn-block" name="xacnhan" value="true">kiểm tra</button>
+        }
+    </div>
+</div>
+<!-- loader -->
+<div id="ftco-loader" class="show fullscreen">
+    <svg class="circular" width="48px" height="48px">
+        <circle class="path-bg"
+                cx="24"
+                cy="24"
+                r="22"
+                fill="none"
+                stroke-width="4"
+                stroke="#eeeeee" />
+        <circle class="path"
+                cx="24"
+                cy="24"
+                r="22"
+                fill="none"
+                stroke-width="4"
+                stroke-miterlimit="10"
+                stroke="#F96D00" />
+    </svg>
+</div>
+<style>
+
+    .back-index a {
+        margin-left: 20px;
+    }
+
+        .back-index a:hover {
+            margin-left: 25px;
+            color: green;
+            transition-duration: 0.7s;
+        }
+</style>
+<script>
+
+</script>

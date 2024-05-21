@@ -1,0 +1,105 @@
+﻿@model Webthuexe.Models.HOADONTHUEXE
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>HOADONTHUEXE</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NGAYLAP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NGAYLAP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TIENCOC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TIENCOC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DADATCOC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DADATCOC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NOIDON)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NOIDON)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GHICHU)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GHICHU)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NOIDI)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NOIDI)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NGAYDI_NHAN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NGAYDI_NHAN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NGAYVE_TRA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NGAYVE_TRA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GIAOXE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GIAOXE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KHACHHANG.TENDAYDU)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KHACHHANG.TENDAYDU)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

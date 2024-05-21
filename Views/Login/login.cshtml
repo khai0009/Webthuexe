@@ -1,0 +1,62 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layoutlogin.cshtml";
+}
+
+<div class="card text-center">
+    <div class="back-index">
+        <a href="@Url.Action("index", "Home", new {area = ""})" class="float-left">Qua lại trang chủ</a>
+    </div>
+        <div class="card-body">
+
+            <h5 class="card-title mb-4">Đăng nhập</h5>
+
+            <form action="/Login/login" method="post">
+                @if(Session["Checklogin"].ToString() == "false")
+                {
+                <p style="color: red; font-weight:bold">Mật khẩu hoặc tên đăng nhập không hợp lệ</p>
+                }
+                <div class="form-group">
+                    <input type="text" class="form-control" id="username" name="sdt" placeholder="Số điện thoại">
+                </div>
+                <div class="form-group">
+                    <input type="password" maxlength="16" class="form-control" id="password" name ="password" placeholder="Password">
+                </div>
+        
+                <div class="form-group">
+                    <a href="@Url.Action("register", "Login",new {area = ""})" class="float-left">Đăng ký</a> <a href="#" class="float-right">Quê mật khẩu?</a>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Đăng nhập</button>
+                <div><a href="@Url.Action("login","Loginadmin",new {area = "Admin"})">Đăng nhập nhân viên</a></div>
+            </form>
+        </div>
+    </div>
+<!-- loader -->
+<div id="ftco-loader" class="show fullscreen">
+    <svg class="circular" width="48px" height="48px">
+        <circle class="path-bg"
+                cx="24"
+                cy="24"
+                r="22"
+                fill="none"
+                stroke-width="4"
+                stroke="#eeeeee" />
+        <circle class="path"
+                cx="24"
+                cy="24"
+                r="22"
+                fill="none"
+                stroke-width="4"
+                stroke-miterlimit="10"
+                stroke="#F96D00" />
+    </svg>
+</div>
+<style>
+    .back-index a{
+        margin-left:20px;
+    }
+    .back-index a:hover{
+        margin-left: 25px;
+        color: green;
+        transition-duration: 0.7s;
+    }
+</style>

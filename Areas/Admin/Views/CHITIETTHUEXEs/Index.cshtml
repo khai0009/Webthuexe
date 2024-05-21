@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Webthuexe.Models.CHITIETTHUEXE>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Index</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MAHD)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BIENXE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.COTAIXE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CHIPHI)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SONGAYTHUE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.XE.MAHANG)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MAHD)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BIENXE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.COTAIXE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CHIPHI)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SONGAYTHUE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.XE.MAHANG)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MAHD }) |
+            @Html.ActionLink("Details", "Details", new { id = item.MAHD }) |
+        </td>
+    </tr>
+}
+
+</table>

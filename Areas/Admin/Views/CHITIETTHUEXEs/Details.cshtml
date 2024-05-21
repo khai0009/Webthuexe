@@ -1,0 +1,51 @@
+﻿@model Webthuexe.Models.CHITIETTHUEXE
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>CHITIETTHUEXE</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.COTAIXE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.COTAIXE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CHIPHI)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CHIPHI)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SONGAYTHUE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SONGAYTHUE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.XE.MAHANG)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.XE.MAHANG)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

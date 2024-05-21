@@ -1,0 +1,112 @@
+﻿@model IEnumerable<Webthuexe.Models.XE>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TENXE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NXS)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LUOTTHUE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GIATHUE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DONVITINH)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SOKM)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NGAYNHAP)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MAUSAC)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ANH)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MIEUTA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HANGXE.TENHANG)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NHIENLIEU.TENNL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SOGHE.SOGHE1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TINHTRANG.TENTT)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TENXE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NXS)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LUOTTHUE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GIATHUE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DONVITINH)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SOKM)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NGAYNHAP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MAUSAC)
+        </td>
+        <td>
+            <img style="width: 130px" src="~/Content/images/@item.ANH"/>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MIEUTA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HANGXE.TENHANG)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NHIENLIEU.TENNL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SOGHE.SOGHE1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TINHTRANG.TENTT)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.BIENXE }) |
+            @Html.ActionLink("Details", "Details", new { id=item.BIENXE }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.BIENXE })
+        </td>
+    </tr>
+}
+
+</table>

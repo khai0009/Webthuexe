@@ -1,0 +1,73 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layoutlogin.cshtml";
+}
+@model Webthuexe.Models.show
+<link rel="stylesheet" href="~/Content/css/custome.css">
+<div class="card text-center">
+
+    <div class="card-body">
+
+        <h5 class="card-title mb-4">Quên mật khẩu </h5>
+        @if (Session["checkfotpass"].ToString() != "true")
+        {
+            <p style="color: red; font-weight:bold">Mật khẩu không trùng khớp</p>
+        }
+        @using (Html.BeginForm(FormMethod.Post))
+        {
+            <div class="row form-group">
+                <div class="back-index">
+                    <a href="@Url.Action("login", "Login")" class="float-left">< Quay lại đăng nhập</a>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col">
+                    <input type="text" class="form-control" name="newpass" maxlength="16" placeholder="Nhập mật khẩu mới">
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col">
+                    <input type="text" class="form-control" name="renewpass" maxlength="16" placeholder="Nhập lại mật khẩu mới">
+                </div>
+
+            </div>
+
+        }
+        <button type="submit" class="btn btn-primary btn-block" name="xacnhan" value="true">Cập nhật mật khẩu</button>
+        }
+    </div>
+</div>
+<!-- loader -->
+<div id="ftco-loader" class="show fullscreen">
+    <svg class="circular" width="48px" height="48px">
+        <circle class="path-bg"
+                cx="24"
+                cy="24"
+                r="22"
+                fill="none"
+                stroke-width="4"
+                stroke="#eeeeee" />
+        <circle class="path"
+                cx="24"
+                cy="24"
+                r="22"
+                fill="none"
+                stroke-width="4"
+                stroke-miterlimit="10"
+                stroke="#F96D00" />
+    </svg>
+</div>
+<style>
+
+    .back-index a {
+        margin-left: 20px;
+    }
+
+        .back-index a:hover {
+            margin-left: 25px;
+            color: green;
+            transition-duration: 0.7s;
+        }
+</style>
+<script>
+
+</script>

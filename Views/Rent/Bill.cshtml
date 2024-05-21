@@ -1,0 +1,179 @@
+﻿
+@{
+    ViewBag.Title = "Bill";
+    Layout = "~/Views/Shared/_LayoutAccount.cshtml";
+}
+@model Webthuexe.Models.show
+
+@foreach (var item in Model.cHITIETTHUEXEs.ToList())
+{
+    foreach (var mahd in Model.hOADONTHUEXEs.ToList())
+    {
+        <div class="card">
+            <div class="card-body">
+                <div class="container mb-5 mt-3">
+                    <div class="row d-flex align-items-baseline">
+                        <div class="col-xl-9">
+                            <p style="color: #7e8d9f;font-size: 20px;">Hóa đơn >> <strong>ID: @item.MAHD</strong></p>
+                        </div>
+                        <div class="col-xl-3 float-end">
+                            <a class="btn btn-light text-capitalize border-0" data-mdb-ripple-color="dark">
+                                <i class="fas fa-print text-primary"></i> In
+                            </a>
+                        </div>
+                        <hr>
+                    </div>
+
+                    <div class="container">
+                        <div class="col-md-12">
+                            <div class="text-center">
+                                <i class="fab fa-mdb fa-4x ms-0" style="color:#5d9fc5 ;"></i>
+                                <p class="pt-0">Hoa đơn thuê xe</p>
+                            </div>
+
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-xl-8">
+                                <ul class="list-unstyled">
+                                    @foreach (var name in Model.kHACHHANGs.ToList())
+                                    {
+                                        <li class="text-muted">Khách hàng: <span style="color:#5d9fc5 ;">@name.TENDAYDU</span></li>
+
+                                            <li class="text-muted"><i class="fas fa-phone"></i> @name.SDT</li>
+
+                                    }
+                                </ul>
+                            </div>
+                            <div class="col-xl-4">
+                                <p class="text-muted">Invoice</p>
+                                <ul class="list-unstyled">
+                                    <li class="text-muted">
+                                        <i class="fas fa-circle" style="color:#84B0CA ;"></i> <span class="fw-bold">ID:</span>@item.MAHD
+                                    </li>
+                                    <li class="text-muted">
+
+                                        <i class="fas fa-circle" style="color:#84B0CA ;"></i> <span class="fw-bold">Ngày tạo: </span>@mahd.NGAYLAP
+                                       
+                                    </li>
+                                    <li class="text-muted">
+                                        <i class="fas fa-circle" style="color:#84B0CA ;"></i> <span class="me-1 fw-bold">Status:</span><span class="badge bg-warning text-black fw-bold">
+                                            Unpaid
+                                        </span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="row my-2 mx-1 justify-content-center">
+                            <table class="table table-striped table-borderless" style="overflow: auto">
+                                <thead style="background-color:#84B0CA ;" class="text-white">
+                                    <tr>
+                                        <th scope="col">Tên xe</th>
+                                        <th scope="col">Hình ảnh</th>
+                                        <th scope="col">Có tài xế</th>
+                                        <th scope="col">Chí phí</th>
+                                        <th scope="col">Tiền cọc</th>
+                                        <th scope="col">số ngày thuê</th>
+                                        <th scope="col">Ngày thuê</th>
+                                        <th scope="col">Ngày Trả</th>
+                                        <th scope="col">Nơi đón</th>
+                                        <th scope="col">Nơi đi</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        @foreach (var tenxe in Model.xes.ToList())
+                                        {
+                                            <td>@tenxe.TENXE</td>
+                                            <td><img style="width: 120px" src="~/Content/images/@tenxe.ANH" /></td>
+                                            <td>@item.COTAIXE</td>
+                                            <td>@item.CHIPHI</td>
+                                            foreach (var tiencoc in Model.hOADONTHUEXEs.ToList())
+                                            {
+                                                <td>@tiencoc.TIENCOC</td>
+                                            }
+                                            <td></td>
+                                            <td>@mahd.NGAYDI_NHAN</td>
+                                            <td>@mahd.NGAYVE_TRA</td>
+                                            <td>@mahd.NOIDON</td>
+                                            <td>@mahd.NOIDI</td>
+                                        }
+                                    </tr>
+
+                                </tbody>
+
+                            </table>
+                        </div>
+                        <div class="row">
+                            <div class="col-xl-8">
+                                <p class="ms-3">Add additional notes and payment information</p>
+
+                            </div>
+                            <div class="col-xl-3">
+                                
+                                <p class="text-black float-start">
+                                    @foreach (var tiencoc in Model.hOADONTHUEXEs.ToList())
+                                    {
+                                    <span class="text-black me-3"> Số tiền phải đặt cọc</span><span style="font-size: 25px;">@tiencoc.TIENCOC </span>
+                                    }
+
+                                </p>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-xl-10">
+                                <p>Thank you for your purchase</p>
+                            </div>
+                            <div class="col-xl-2">
+                                <button type="button" class="btn btn-primary text-capitalize online" 
+                                        style="background-color:#60bdf3 ;">
+                                   <a class="online" href="#momo">Thanh toán</a>
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+        <a class="dong" href="#">
+        <div class="thanhtoan" id="momo">
+            <div  class="thanhon">
+                <img style="width: 400px" src="~/Content/images/z5271034659996_a8cda26877b3bb40582e74d976ad7329.jpg" />
+            </div>
+        </div>
+            </a>
+        <style>
+            .thanhtoan{
+                position: fixed;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                z-index: 10;
+                display: flex;
+                align-items: center;
+                justify-content:center;
+                visibility: hidden;
+                background: gray;
+            }
+            
+            .thanhon {
+                position: relative;
+                
+            }
+            .dong:hover{
+                cursor: default;
+            }
+            .thanhtoan:target {
+                visibility: visible;
+            }
+        </style>
+        <script>
+
+        </script>
+}

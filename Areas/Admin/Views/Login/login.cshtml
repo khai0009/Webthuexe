@@ -1,0 +1,62 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layoutlogin.cshtml";
+}
+
+<div class="card text-center">
+    <div class="back-index">
+    </div>
+        <div class="card-body">
+
+            <h5 class="card-title mb-4">CarBook Login</h5>
+
+            @using (Html.BeginForm("login","Loginadmin",FormMethod.Post,new { area = "Admin"})) {
+                <div class="form-group">
+                    <input type="text" name="sdt" class="form-control" id="username" placeholder="SDT">
+                </div>
+                <div class="form-group">
+                    <input type="password" name="pas" class="form-control" id="password" placeholder="Password">
+                </div>
+        
+                <div class="form-group">
+                    <select name="cv">
+                        <option>Nhân viên bãi xe</option>
+                        <option>Thu ngân</option>
+                        <option>Tiếp tân</option>
+                        <option>Quản trị</option>
+                    </select><a href="#" class="float-right">Quê mật khẩu?</a>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Login</button>
+
+           }
+        </div>
+    </div>
+<!-- loader -->
+<div id="ftco-loader" class="show fullscreen">
+    <svg class="circular" width="48px" height="48px">
+        <circle class="path-bg"
+                cx="24"
+                cy="24"
+                r="22"
+                fill="none"
+                stroke-width="4"
+                stroke="#eeeeee" />
+        <circle class="path"
+                cx="24"
+                cy="24"
+                r="22"
+                fill="none"
+                stroke-width="4"
+                stroke-miterlimit="10"
+                stroke="#F96D00" />
+    </svg>
+</div>
+<style>
+    .back-index a{
+        margin-left:20px;
+    }
+    .back-index a:hover{
+        margin-left: 25px;
+        color: green;
+        transition-duration: 0.7s;
+    }
+</style>

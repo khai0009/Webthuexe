@@ -1,0 +1,65 @@
+﻿@model Webthuexe.Models.show
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <h4>CHITIETTHUEXE</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.CHITIETTHUEXE.MAHD)
+
+    @Html.HiddenFor(model => model.CHITIETTHUEXE.MAHD)
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.CHITIETTHUEXE.BIENXE, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <div class="checkbox">
+                <select name="BIEN" class="form-control">
+                    @foreach (var name in Model.xes.ToList())
+                {
+                    <option value="@name.BIENXE">@name.BIENXE</option>
+                }
+                </select>
+                @Html.ValidationMessageFor(model => model.CHITIETTHUEXE.BIENXE, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.CHITIETTHUEXE.COTAIXE, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <div class="checkbox">
+                @Html.EditorFor(model => model.CHITIETTHUEXE.COTAIXE)
+                @Html.ValidationMessageFor(model => model.CHITIETTHUEXE.COTAIXE, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.CHITIETTHUEXE.SONGAYTHUE, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.CHITIETTHUEXE.SONGAYTHUE, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.CHITIETTHUEXE.SONGAYTHUE, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Save" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

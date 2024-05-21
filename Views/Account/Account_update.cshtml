@@ -1,0 +1,165 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layoutlogin.cshtml";
+}
+@model Webthuexe.Models.show
+<link rel="stylesheet" href="~/Content/css/custome.css">
+<div class="card text-center">
+    
+    <div class="card-body">
+
+        <h5 class="card-title mb-4">Cập nhật</h5>
+        @using (Html.BeginForm("Account_update", "Account", FormMethod.Post))
+        {
+
+
+
+            foreach (var info in Model.kHACHHANGs.ToList())
+            {
+                <div class="row form-group">
+                    <div class="back-index">
+                        <a href="@Url.Action("Account_information", "Account",new {area = "",makh=info.MAKH})" class="float-left">< Quay lại tài khoản</a>
+                    </div>
+                </div>
+
+                <div class="row form-group">
+                    <div class="col">
+                        <input type="text" class="form-control" name="lastname" value="@info.HO" placeholder="Họ">
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" name="middlename" value="@info.LOT" placeholder="Lót">
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" name="firstname" value="@info.TEN" placeholder="Tên">
+                    </div>
+
+                </div>
+                <div class="row form-group">
+                    <select name="gt" class="form-control">
+                        @if (info.GIOITINH == true)
+                        {
+                            <option value="nam" selected>Nam</option>
+                            <option value="nu">Nữ</option>
+                        }
+                        else
+                        {
+                            <option value="nam">Nam</option>
+                            <option value="nu" selected>Nữ</option>
+                        }
+                    </select>
+                </div>
+                <div class="row form-group">
+                    <div class="col">
+                        <input class="form-control" type="text" id="matp" name="sn" value="@info.SONHA" placeholder="Số nhà" />
+                    </div>
+                    <div class="col">
+                        @foreach (var maq in Model.pHUONG_XAs.Where(n => n.MAXP == info.MAXP))
+                        {
+                            <input class="form-control" list="phuong" type="text" name="px" value="@maq.TENXP" placeholder="Chọn phương/xã" />
+                        }
+
+                    </div>
+
+                </div>
+                <div class="row form-group">
+                    <div class="col">
+                        @foreach (var maq in Model.qUAN_HUYENs.Where(n => n.MAQ == info.MAQ))
+                        {
+                            <input class="form-control" list="quan" type="text" name="q" value="@maq.TENQH" placeholder="Chọn quận/huyện" />
+                        }
+                    </div>
+                    <div class="col">
+                        @foreach (var maq in Model.tTHANHPHO_TINHs.Where(n => n.MATP == info.MATP))
+                        {
+                            <input class="form-control" list="tp" type="text" id="matp" name="tp" value="@maq.TENTP_TINH" placeholder="Chọn thành phố/tỉnh" />
+                        }
+                    </div>
+                </div>
+                <div class="col">
+                    <datalist id="tp">
+
+                        @foreach (var tp in Model.tTHANHPHO_TINHs.ToList())
+                        {
+
+                            <option value="@tp.TENTP_TINH" />
+                        }
+                    </datalist>
+
+                    <datalist id="quan">
+                        @foreach (var quan in Model.qUAN_HUYENs.ToList())
+                        {
+
+                            <option value="@quan.TENQH" />
+                        }
+                    </datalist>
+
+                    <datalist id="phuong">
+                        @foreach (var phuong in Model.pHUONG_XAs.ToList())
+                        {
+
+                            <option value="@phuong.TENXP" />
+                        }
+
+                    </datalist>
+
+                </div>
+                <div class="payment-info">
+                    <div class="d-flex">
+                        <div class="form-group mr-2">
+                   
+                            <input type="text" class="form-control" id="book_pick_date" name="ns" value="@info.NGAYSINH" placeholder="Ngày sinh">
+                        </div>
+                    </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" maxlength="12" name="cccd" value="@info.CCCD" placeholder="CCCD">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" maxlength="12" name="bl" value="@info.BANGLAI" placeholder="BANGLAI">
+                    </div>
+                    <div class="form-group">
+                        <input type="email" class="form-control" id="email" name="email" value="@info.Email" placeholder="name@example.com">
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" class="form-control" maxlength="10" id="SDT" name="sdt" value="@info.SDT" placeholder="Số điện thoại">
+                    </div>
+                    }
+                    <button type="submit" class="btn btn-primary btn-block" name="xacnhan" value="true">Cập nhật</button>
+                    }
+                </div>
+            </div>
+<!-- loader -->
+<div id="ftco-loader" class="show fullscreen">
+    <svg class="circular" width="48px" height="48px">
+        <circle class="path-bg"
+                cx="24"
+                cy="24"
+                r="22"
+                fill="none"
+                stroke-width="4"
+                stroke="#eeeeee" />
+        <circle class="path"
+                cx="24"
+                cy="24"
+                r="22"
+                fill="none"
+                stroke-width="4"
+                stroke-miterlimit="10"
+                stroke="#F96D00" />
+    </svg>
+</div>
+<style>
+
+    .back-index a {
+        margin-left: 20px;
+    }
+
+        .back-index a:hover {
+            margin-left: 25px;
+            color: green;
+            transition-duration: 0.7s;
+        }
+</style>
+<script>
+
+</script>

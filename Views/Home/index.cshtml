@@ -1,0 +1,176 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model Webthuexe.Models.show
+<section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('../Content/images/bg_3.jpg');" data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-start">
+            <div class="col-md-9 ftco-animate pb-5">
+                <p class="breadcrumbs"><span class="mr-2"><a href="@Url.Action("index", "Home")">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Cars <i class="ion-ios-arrow-forward"></i></span></p>
+                <h1 class="mb-3 bread">Chọn xe của bạn</h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="ftco-section bg-light">
+    
+    <div class="container">
+        <nav>
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Tìm kiếm nâng cao
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <div class="dropdown-item">
+                        <div class="row" style="margin-bottom: 20px; border: solid 1px black; padding: 5px; border-radius: 5.5px;">
+                            <div class="col">
+                                <div>
+                                    <label for="cars">Choose a car:</label>
+                                    @foreach (var hxe in Model.hangxes.ToList())
+                                    {
+                                        <div class="col" style="margin-right: 10px">
+                                            <input type="checkbox" class="" name="hxe" value="@hxe.MAHANG" />
+                                            <labal class="form-check-label">@hxe.TENHANG</labal>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div>
+                                    <label for="cars">Choose a car:</label>
+                                    @foreach (var hxe in Model.sOGHEs.ToList())
+                                    {
+                                        <div class="col" style="margin-right: 10px">
+                                            <input type="checkbox" class="" name="sg" value="@hxe.MASG" />
+                                            <labal class="form-check-label">@hxe.SOGHE1 chỗ </labal>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+
+                            <div class="col">
+                                <label for="cars">Choose a car:</label>
+                                @foreach (var hxe in Model.nHIENLIEUs.ToList())
+                                {
+                                    <div class="col" style="margin-right: 10px">
+                                        <input type="checkbox" class="" name="nl" value="@hxe.MANL" />
+                                        <labal class="form-check-label">@hxe.TENNL</labal>
+                                    </div>
+                                }
+
+                            </div>
+                        </div>
+
+                        
+                        
+
+                        <div class="dropdown-item">
+                            <div class="row">
+                                <div class="col">
+                                    <button name="timkiemnc" type="submit" class="btn btn-success">Tìm kiếm</button>
+                                </div>
+                                <div class="col">
+                                    <button name="khoidonglai" type="submit" class="btn btn-warning">Xóa</button>
+                                </div>
+                            </div>
+                        </div>
+                    
+                    </div>
+                </div>
+            </div>
+        </nav>
+        @using (Html.BeginForm("index", "Home", FormMethod.Post))
+        {
+            
+            
+        }
+
+        <div class="row">
+            @foreach (var xe in Model.xes)
+            {
+
+                int soluong = Model.xes.Where(n => n.BIENXE == xe.BIENXE && n.MATT == "A").Count();
+
+                <div class="col-md-4">
+                    <div class="car-wrap rounded ftco-animate">
+                        @if (soluong > 0)
+                        {
+                            <div class="img rounded d-flex align-items-end " style="background-image: url(../Content/images/@xe.ANH);"></div>
+                        }
+                        else
+                        {
+                            <div class="img rounded d-flex align-items-end " style="background-image: url(../Content/images/@xe.ANH); opacity: 0.2"></div>
+                        }
+
+                        <div class="text">
+                            <h2 class="mb-0"><a href="car-single.html">@xe.TENXE</a></h2>
+                            @foreach (var tt in Model.tINHTRANGs.Where(n => n.MATT == xe.MATT))
+                            {
+                                <span class="cat">@tt.TENTT</span>
+                            }
+                            <div class="d-flex mb-3">
+
+                                <p class="price ml-auto">@xe.GIATHUE <span>/day</span></p>
+                                <p class="price ml-auto">@xe.GIATAIXE <span>/day</span></p>
+                                <p class="price ml-auto">Giá thuê</p>
+                            </div>
+                            <p class="d-flex mb-0 d-block">
+
+                                @if (Session["IDuser"] != null)
+                                {
+                                    if (soluong > 0)
+                                    {
+                                        <a href="@Url.Action("Rent_car", "Rent", new { maxe = xe.TENXE, tulai = true }) " style="background-color: red !important" class="btn btn-primary py-2 mr-1">Tự lái</a>
+                                        <a href="@Url.Action("Rent_car", "Rent", new { maxe = xe.TENXE })" class="btn btn-primary py-2 mr-1">Có tài xế</a>
+                                        <a href="@Url.Action("Detail", "Home", new { Maxe = xe.BIENXE })" class="btn btn-secondary py-2 ml-1">Chi tiết</a>
+                                    }
+                                    else
+                                    {
+                                        <center><div class="font-italic font-weight-bold" style="color: red">Đã hết</div></center>
+
+                                    }
+                                }
+                                else
+                                {
+                                    <a href="@Url.Action("login", "Login")" class="btn btn-primary py-2 mr-1" style="background-color: red !important">Tự lái</a>
+                                    <a href="@Url.Action("login", "Login")" class="btn btn-primary py-2 mr-1">Có tài xế</a>
+                                    <a href="@Url.Action("Detail", "Home", new { Maxe = xe.BIENXE })" class="btn btn-secondary py-2 ml-1">Chi tiết</a>
+                                }
+
+
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+        <div class="row mt-5">
+            <div class="col text-center">
+                <div class="block-27">
+                    <ul>
+
+                        @for (var sotrang = 1; sotrang <= int.Parse(Session["sotrang"].ToString()); sotrang++)
+                        {
+
+                            <li><a href="@Url.Action("index", "Home", new {@c_trang = sotrang})">@sotrang</a></li>
+
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    window.addEventListener('beforeunload', function (e) {
+        e.preventDefault();
+        e.returnValue = '';
+    });
+
+    function confirmExit() {
+        return 'Bạn có chắc chắn muốn rời khỏi trang web này?';
+    }
+</script>

@@ -1,0 +1,76 @@
+﻿@model Webthuexe.Models.XE
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Edit</h2>
+
+<div class="form-group">
+    @Html.LabelFor(model => model.BIENXE, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+        @Html.DisplayFor(model => model.BIENXE, new { htmlAttributes = new { @class = "form-control" } })
+
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(model => model.TENXE, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+        @Html.DisplayFor(model => model.TENXE, new { htmlAttributes = new { @class = "form-control" } })
+
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(model => model.HANGXE, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+        @Html.DisplayFor(model => model.HANGXE, new { htmlAttributes = new { @class = "form-control" } })
+
+    </div>
+</div>
+<div class="form-group">
+    @Html.LabelFor(model => model.ANH, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+        <img style="width: 130px" src="~/Content/images/@Html.DisplayFor(model=>model.ANH)" />
+
+    </div>
+</div>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>XE</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.BIENXE)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MATT, "MATT", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("MATT", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.MATT, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SOKM, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.SOKM, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.SOKM, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Indexnvbx")
+</div>

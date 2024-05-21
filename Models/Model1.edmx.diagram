@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c1ca0881c5df4cebaba6de3e316baacf" Name="Diagram1">
+        <EntityTypeShape EntityType="MyworldModel.BAOHIEM" Width="1.5" PointX="9.75" PointY="19.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyworldModel.CHITIETBAOTRI" Width="1.5" PointX="18" PointY="27.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyworldModel.CHITIETLICHCHAY" Width="1.5" PointX="18" PointY="31.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyworldModel.CHITIETTHUEXE" Width="1.5" PointX="15.75" PointY="24.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyworldModel.CHUCVU" Width="1.5" PointX="8.25" PointY="33.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyworldModel.HANGXE" Width="1.5" PointX="13.5" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyworldModel.HOADONTHUEXE" Width="1.5" PointX="9.75" PointY="36.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyworldModel.KHACHHANG" Width="1.5" PointX="7.5" PointY="26.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyworldModel.NHANVIEN" Width="1.5" PointX="10.5" PointY="29.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyworldModel.NHANVIENQLBAIXE" Width="1.5" PointX="10.5" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyworldModel.NHIENLIEU" Width="1.5" PointX="13.5" PointY="17.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyworldModel.PHIEUBAOTRI" Width="1.5" PointX="15.75" PointY="27.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyworldModel.PHIEUDENBU" Width="1.5" PointX="12" PointY="37.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyworldModel.PHIEUTHANHTOAN" Width="1.5" PointX="14.75" PointY="36.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyworldModel.PHUONG_XA" Width="1.5" PointX="5.25" PointY="39.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyworldModel.QUAN_HUYEN" Width="1.5" PointX="3" PointY="39.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyworldModel.SOGHE" Width="1.5" PointX="13.5" PointY="19.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyworldModel.TAIXE" Width="1.5" PointX="13.5" PointY="29.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyworldModel.THANHPHO_TINH" Width="1.5" PointX="0.75" PointY="16.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyworldModel.TINHTRANG" Width="1.5" PointX="13.5" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyworldModel.TKKHACHHANG" Width="1.5" PointX="9.75" PointY="41" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyworldModel.TKNV" Width="1.5" PointX="12.75" PointY="40.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyworldModel.TKNVBAIXE" Width="1.5" PointX="12.75" PointY="24.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyworldModel.TKTAIXE" Width="1.5" PointX="15.75" PointY="31.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyworldModel.XE" Width="1.5" PointX="15.75" PointY="16.5" IsExpanded="true" />
+        <AssociationConnector Association="MyworldModel.FK__BAOHIEM__MAKH__74AE54BC" ManuallyRouted="false" />
+        <AssociationConnector Association="MyworldModel.FK__CHITIETBA__BIENX__72C60C4A" ManuallyRouted="false" />
+        <AssociationConnector Association="MyworldModel.FK__CHITIETBA__MAPBT__0F624AF8" ManuallyRouted="false" />
+        <AssociationConnector Association="MyworldModel.FK__CHITIETLI__MATAI__7A672E12" ManuallyRouted="false" />
+        <AssociationConnector Association="MyworldModel.FK__CHITIETLICHCHAY__02084FDA" ManuallyRouted="false" />
+        <AssociationConnector Association="MyworldModel.FK__CHITIETTH__BIENX__0E6E26BF" ManuallyRouted="false" />
+        <AssociationConnector Association="MyworldModel.FK__NHANVIEN__MACV__10566F31" ManuallyRouted="false" />
+        <AssociationConnector Association="MyworldModel.FK__XE__MAHANG__797309D9" ManuallyRouted="false" />
+        <AssociationConnector Association="MyworldModel.FK__HOADONTHUE__MAKH__75A278F5" ManuallyRouted="false" />
+        <AssociationConnector Association="MyworldModel.FK__PHIEUDENBU__MAHD__0D7A0286" ManuallyRouted="false" />
+        <AssociationConnector Association="MyworldModel.FK__PHIEUTHANH__MAHD__02FC7413" ManuallyRouted="false" />
+        <AssociationConnector Association="MyworldModel.FK__KHACHHANG__MAQ__0B91BA14" ManuallyRouted="false" />
+        <AssociationConnector Association="MyworldModel.FK__KHACHHANG__MATP__06CD04F7" ManuallyRouted="false" />
+        <AssociationConnector Association="MyworldModel.FK__KHACHHANG__MAXP__01142BA1" ManuallyRouted="false" />
+        <AssociationConnector Association="MyworldModel.FK__TKKHACHHAN__MAKH__73BA3083" ManuallyRouted="false" />
+        <AssociationConnector Association="MyworldModel.FK__NHANVIEN__MAQ__09A971A2" ManuallyRouted="false" />
+        <AssociationConnector Association="MyworldModel.FK__NHANVIEN__MATP__04E4BC85" ManuallyRouted="false" />
+        <AssociationConnector Association="MyworldModel.FK__NHANVIEN__MAXP__7F2BE32F" ManuallyRouted="false" />
+        <AssociationConnector Association="MyworldModel.FK__PHIEUBAOTR__MANV__71D1E811" ManuallyRouted="false" />
+        <AssociationConnector Association="MyworldModel.FK__PHIEUTHANH__MANV__70DDC3D8" ManuallyRouted="false" />
+        <AssociationConnector Association="MyworldModel.FK__TKNV__MANV__6FE99F9F" ManuallyRouted="false" />
+        <AssociationConnector Association="MyworldModel.FK__NHANVIENQL__MATP__03F0984C" ManuallyRouted="false" />
+        <AssociationConnector Association="MyworldModel.FK__NHANVIENQL__MAXP__7E37BEF6" ManuallyRouted="false" />
+        <AssociationConnector Association="MyworldModel.FK__NHANVIENQLB__MAQ__08B54D69" ManuallyRouted="false" />
+        <AssociationConnector Association="MyworldModel.FK__PHIEUBAOT__MANVB__7D439ABD" ManuallyRouted="false" />
+        <AssociationConnector Association="MyworldModel.FK__TKNVBAIXE__MANVB__7C4F7684" ManuallyRouted="false" />
+        <AssociationConnector Association="MyworldModel.FK__XE__MANL__778AC167" ManuallyRouted="false" />
+        <AssociationConnector Association="MyworldModel.FK__PHUONG_XA__MAQ__0C85DE4D" ManuallyRouted="false" />
+        <AssociationConnector Association="MyworldModel.FK__TAIXE__MAXP__00200768" ManuallyRouted="false" />
+        <AssociationConnector Association="MyworldModel.FK__QUAN_HUYEN__MATP__07C12930" ManuallyRouted="false" />
+        <AssociationConnector Association="MyworldModel.FK__TAIXE__MAQ__0A9D95DB" ManuallyRouted="false" />
+        <AssociationConnector Association="MyworldModel.FK__XE__MASG__787EE5A0" ManuallyRouted="false" />
+        <AssociationConnector Association="MyworldModel.FK__TAIXE__MATP__05D8E0BE" ManuallyRouted="false" />
+        <AssociationConnector Association="MyworldModel.FK__TKTAIXE__MATAIXE__76969D2E" ManuallyRouted="false" />
+        <AssociationConnector Association="MyworldModel.FK__XE__MATT__7B5B524B" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

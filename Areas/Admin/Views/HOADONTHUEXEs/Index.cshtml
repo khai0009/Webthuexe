@@ -1,0 +1,88 @@
+﻿@model IEnumerable<Webthuexe.Models.HOADONTHUEXE>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NGAYLAP)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TIENCOC)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DADATCOC)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NOIDON)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GHICHU)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NOIDI)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NGAYDI_NHAN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NGAYVE_TRA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GIAOXE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KHACHHANG.TENDAYDU)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NGAYLAP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TIENCOC)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DADATCOC)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NOIDON)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GHICHU)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NOIDI)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NGAYDI_NHAN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NGAYVE_TRA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GIAOXE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.KHACHHANG.TENDAYDU)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MAHD }) |
+            @Html.ActionLink("Details", "Details", new { id=item.MAHD }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MAHD })
+        </td>
+    </tr>
+}
+
+</table>

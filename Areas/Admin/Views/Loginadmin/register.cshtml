@@ -1,0 +1,89 @@
+﻿
+@{
+    ViewBag.Title = "register";
+    Layout = "~/Areas/Admin/Views/Shared/_Layoutlogin.cshtml";
+}
+
+
+    <link rel="stylesheet" href="~/Content/css/custome.css">
+    <div class="card text-center">
+        <div class="back-index">
+            <a href="@Url.Action("login", "Loginadmin",new {area = ""})" class="float-left">< Đã có tài khoản</a>
+        </div>
+        <div class="card-body">
+
+            <h5 class="card-title mb-4">Đăng ký tài khoản nhân viên</h5>
+            @if (Session["checkregisteradmin"].ToString() == "false")
+            {
+                <p style="color: red; font-weight: bold">Thông tin đăng ký không hợp lệ</p>
+            }
+
+            @using (Html.BeginForm("register", "LoginAdmin", FormMethod.Post))
+            {
+                <div class="form-group">
+                    <select name="cv" class="form-control">
+                        <option value="Nhân viên bãi xe">Nhân viên bãi xe</option>
+                        <option value="Thu ngân">Thu ngân</option>
+                        <option value="Tiếp tân">Tiếp tân</option>
+                        <option value="Quản lí">Quản lí</option>
+                        <option value="Tài xế">Tài xế</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="manv" name="mavn" placeholder="Mã nhân viên được cấp từ công ty">
+                </div>
+                <div class="form-group">
+                    <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com">
+                </div>
+
+                <div class="form-group">
+                    <input type="text" class="form-control" maxlength="10" id="SDT" name="sdt" placeholder="Số điện thoại">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" maxlength="16" id="password" name="password" placeholder="Mật khẩu">
+                    <small id="passwordHelpInline" class="text-muted">
+                        mật khẩu phải từ 8 - 16 kí tự
+                    </small>
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" maxlength="16" id="repassword" name="repassword" placeholder="Nhập lại mật khẩu">
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Đăng ký</button>
+            }
+        </div>
+    </div>
+    <!-- loader -->
+    <div id="ftco-loader" class="show fullscreen">
+        <svg class="circular" width="48px" height="48px">
+            <circle class="path-bg"
+                    cx="24"
+                    cy="24"
+                    r="22"
+                    fill="none"
+                    stroke-width="4"
+                    stroke="#eeeeee" />
+            <circle class="path"
+                    cx="24"
+                    cy="24"
+                    r="22"
+                    fill="none"
+                    stroke-width="4"
+                    stroke-miterlimit="10"
+                    stroke="#F96D00" />
+        </svg>
+    </div>
+    <style>
+
+        .back-index a {
+            margin-left: 20px;
+        }
+
+            .back-index a:hover {
+                margin-left: 25px;
+                color: green;
+                transition-duration: 0.7s;
+            }
+    </style>
+    <script>
+
+    </script>

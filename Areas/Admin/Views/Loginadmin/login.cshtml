@@ -1,0 +1,71 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layoutlogin.cshtml";
+
+
+}
+
+<div class="card text-center">
+    <div class="back-index">
+    </div>
+    <div class="card-body">
+
+        <h5 class="card-title mb-4">Đăng nhập nhân viên</h5>
+        @if(Session["checkloginadmin"].ToString() != "true"){
+        <p style="color: red; font-weight: bold">Mật khẩu hoặc số điện thoại không hợp lệ</p>
+        }
+        @using (Html.BeginForm("login", "Loginadmin", FormMethod.Post, new { area = "Admin" }))
+        {
+            <div class="form-group">
+                <input type="text" name="sdt" class="form-control" id="username" placeholder="SDT">
+            </div>
+            <div class="form-group">
+                <input type="password" name="pas" class="form-control" id="password" placeholder="Password">
+            </div>
+            <div class="form-group">
+                <select name="cv" class="float-left">
+                    <option value="Nhân viên bãi xe">Nhân viên bãi xe</option>
+                    <option value="Thu ngân">Thu ngân</option>
+                    <option value="Tiếp tân">Tiếp tân</option>
+                    <option value="Quản lí">Quản lí</option>
+                    <option value="Tài xế">Tài xế</option>
+                </select>
+                <a href="@Url.Action("fotpass","Loginadmin")" class="float-right">Quê mật khẩu?</a>
+            </div>
+            <div class="form-group">
+                <a href="@Url.Action("register","Loginadmin")" class="">Đăng ký tài khoản</a>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Đăng nhập</button>
+
+        }
+    </div>
+    </div>
+<!-- loader -->
+<div id="ftco-loader" class="show fullscreen">
+    <svg class="circular" width="48px" height="48px">
+        <circle class="path-bg"
+                cx="24"
+                cy="24"
+                r="22"
+                fill="none"
+                stroke-width="4"
+                stroke="#eeeeee" />
+        <circle class="path"
+                cx="24"
+                cy="24"
+                r="22"
+                fill="none"
+                stroke-width="4"
+                stroke-miterlimit="10"
+                stroke="#F96D00" />
+    </svg>
+</div>
+<style>
+    .back-index a{
+        margin-left:20px;
+    }
+    .back-index a:hover{
+        margin-left: 25px;
+        color: green;
+        transition-duration: 0.7s;
+    }
+</style>
